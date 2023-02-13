@@ -1,0 +1,15 @@
+-- Welcome to EzSploit--
+--V3--
+
+--Created by mikusweb(or MikusseQ, Mikq, mikusDEV)--
+
+--Version 3.3--
+
+--Help in "Info" tab--
+
+--You can select theme in options--
+
+--API supported: WRD, EasyExploits, KRNL --
+
+--You can request more APIs in comments--
+--on EzSploit Website (linked in "Info")--

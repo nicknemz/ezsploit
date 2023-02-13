@@ -1,0 +1,21 @@
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\EzSploit V3.exe.config
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\EzSploit V3.exe
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\EzSploit V3.pdb
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\EasyExploits.dll
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\FastColoredTextBox.dll
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\Guna.UI2.dll
+C:\Users\mdev\Documents\git\ezsploit\bin\x64\Debug\net48\KrnlAPI.dll
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit-V3.csproj.AssemblyReference.cache
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit-V3.csproj.SuggestedBindingRedirects.cache
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit_REBORN.Properties.Resources.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit_REBORN.UserControls.u.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit_REBORN.UserControls.uc_home.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit_REBORN.UserControls.uc_options.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit_REBORN.Form1.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit_V3.SaveWindow_.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit-V3.csproj.GenerateResource.cache
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit-V3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit-V3.csproj.CoreCompileInputs.cache
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit-V3.csproj.CopyComplete
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit V3.exe
+C:\Users\mdev\Documents\git\ezsploit\obj\x64\Debug\net48\EzSploit V3.pdb
