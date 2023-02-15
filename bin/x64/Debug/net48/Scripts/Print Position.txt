@@ -1,2 +1,0 @@
-print("Your CFrame position:")
-print(game.Players.LocalPlayer.Character.Torso.Position)

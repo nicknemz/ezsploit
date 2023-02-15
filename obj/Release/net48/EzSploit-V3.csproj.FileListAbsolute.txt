@@ -1,6 +1,3 @@
-C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe.config
-C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe
-C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.pdb
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EasyExploits.dll
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\FastColoredTextBox.dll
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\Guna.UI2.dll
@@ -17,5 +14,10 @@ C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V3.csproj.Genera
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V3.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V3.csproj.CoreCompileInputs.cache
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V3.csproj.CopyComplete
+C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_V3.krnlfix_.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_REBORN.UserControls.uc_info.resources
+C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe.config
+C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe
+C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.pdb
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit V3.exe
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit V3.pdb

@@ -19,3 +19,4 @@ C:\Users\mdev\Documents\git\ezsploit\obj\Debug\net48\EzSploit V3.exe
 C:\Users\mdev\Documents\git\ezsploit\obj\Debug\net48\EzSploit V3.pdb
 C:\Users\mdev\Documents\git\ezsploit\obj\Debug\net48\EzSploit_V3.SaveWindow_.resources
 C:\Users\mdev\Documents\git\ezsploit\obj\Debug\net48\EzSploit_REBORN.UserControls.uc_options.resources
+C:\Users\mdev\Documents\git\ezsploit\obj\Debug\net48\EzSploit_V3.krnlfix_.resources

@@ -39,7 +39,7 @@ public class uc_home : UserControl
 	public uc_home()
 	{
 		InitializeComponent();
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "galaxy")
+        if (File.ReadAllText("./Configs/selectedTheme.txt") == "galaxy")
 		{
 			BackgroundImage = Resources.starsback;
 			fastColoredTextBox1.BackgroundImage = Resources.starsback;
@@ -64,7 +64,7 @@ public class uc_home : UserControl
 		Functions.PopulateListBox(listBox1, "./Scripts", "*.lua");
 		if (File.ReadAllText("./Configs/textboxreset.txt") == "doreset")
 		{
-			fastColoredTextBox1.Text = "-- Welcome to EzSploit--\r\n--V3--\r\n\r\n--Created by mikusweb(or MikusseQ, Mikq, mikusDEV)--\r\n\r\n--Version 3.3--\r\n\r\n--Help in \"Info\" tab--\r\n\r\n--You can select theme in options--\r\n\r\n--API supported: WRD, EasyExploits, KRNL --\r\n\r\n--You can request more APIs in comments--\r\n--on EzSploit Website (linked in \"Info\")--";
+			fastColoredTextBox1.Text = "-- Welcome to EzSploit--\r\n--V4--\r\n\r\n--Created by mikusweb(or MikusseQ, Mikq, mikusDEV, mikusgszyp)--\r\n\r\n--Version 4.0--\r\n\r\n--Help in \"Info\" tab--\r\n\r\n--You can select theme in options--\r\n\r\n--API supported:EasyExploits, KRNL --\r\n\r\n--You can request more APIs in comments--\r\n--on EzSploit Website (linked in \"Info\")--";
 			File.WriteAllText("./Configs/textboxreset.txt", "dontreset");
 			File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
 		}
@@ -75,7 +75,30 @@ public class uc_home : UserControl
 		}
 	}
 
-	private void uc_home_Load(object sender, EventArgs e)
+    public void wait(int milliseconds)
+    {
+        var timer1 = new System.Windows.Forms.Timer();
+        if (milliseconds == 0 || milliseconds < 0) return;
+
+        // Console.WriteLine("start wait timer");
+        timer1.Interval = milliseconds;
+        timer1.Enabled = true;
+        timer1.Start();
+
+        timer1.Tick += (s, e) =>
+        {
+            timer1.Enabled = false;
+            timer1.Stop();
+            // Console.WriteLine("stop wait timer");
+        };
+
+        while (timer1.Enabled)
+        {
+            Application.DoEvents();
+        }
+    }
+
+    private void uc_home_Load(object sender, EventArgs e)
 	{
 	}
 
@@ -88,13 +111,15 @@ public class uc_home : UserControl
 	private void guna2Button1_Click(object sender, EventArgs e)
 	{
 		ezsploitkrnl.Initialize();
-		if (File.ReadAllText("./Configs/selectedAPI.txt") == "EasyExploits")
+		wait(1000);
+        if (File.ReadAllText("./Configs/selectedAPI.txt") == "EasyExploits")
 		{
 			ezsploitex.LaunchExploit();
 		}
 		if (File.ReadAllText("./Configs/selectedAPI.txt") == "Krnl")
 		{
-			ezsploitkrnl.Inject();
+            krnlfix_ krnlfix = new krnlfix_();
+            DialogResult dialogResult = krnlfix.ShowDialog();
 		}
 		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
 	}

@@ -51,7 +51,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(168, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "C:\\Users\\YOUR USER\\AppData\\Local\\Programs\\EzSploit V3\\Scripts";
+            this.textBox1.Text = "Documents\\ezsploit\r\n";
             // 
             // label1
             // 

@@ -15,9 +15,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mdev\\Documents\\git\\ezsploit\\EzSploit-V3.csproj",
+      "projectUniqueName": "C:\\Users\\mdev\\Documents\\git\\ezsploit\\EzSploit-V4.csproj",
       "projectName": "EzSploit V3",
-      "projectPath": "C:\\Users\\mdev\\Documents\\git\\ezsploit\\EzSploit-V3.csproj",
+      "projectPath": "C:\\Users\\mdev\\Documents\\git\\ezsploit\\EzSploit-V4.csproj",
       "packagesPath": "C:\\Users\\mdev\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\mdev\\Documents\\git\\ezsploit\\obj\\",
       "projectStyle": "PackageReference",
