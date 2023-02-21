@@ -32,6 +32,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -51,7 +52,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(168, 20);
             this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "Documents\\ezsploit\r\n";
+            this.textBox1.Text = "C:\\Users\\YOURUSER\\AppData\\Local\\Programs\\EzSploit";
             // 
             // label1
             // 
@@ -69,10 +70,19 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(12, 34);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(457, 32);
+            this.label2.Size = new System.Drawing.Size(267, 32);
             this.label2.TabIndex = 3;
-            this.label2.Text = "If you downloaded zip, scripts is just in folder, remember to save as .txt or .lu" +
-    "a\r\n\r\n";
+            this.label2.Text = "If you downloaded zip, scripts is just in folder\r\n\r\n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.Location = new System.Drawing.Point(151, 66);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(227, 16);
+            this.label3.TabIndex = 4;
+            this.label3.Text = " remember to save as .txt or .lua";
             // 
             // SaveWindow_
             // 
@@ -80,6 +90,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.ClientSize = new System.Drawing.Size(516, 101);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
@@ -99,5 +110,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

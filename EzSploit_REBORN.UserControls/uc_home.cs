@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using AxonSimpleUI;
 using EasyExploits;
 using EzSploit_REBORN.Properties;
 using EzSploit_V3;
@@ -121,7 +122,11 @@ public class uc_home : UserControl
             krnlfix_ krnlfix = new krnlfix_();
             DialogResult dialogResult = krnlfix.ShowDialog();
 		}
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+        if (File.ReadAllText("./Configs/selectedAPI.txt") == "mdev")
+        {
+            Functions.Inject();
+        }
+        File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button2_Click(object sender, EventArgs e)
@@ -134,7 +139,20 @@ public class uc_home : UserControl
 		{
 			ezsploitkrnl.Execute(fastColoredTextBox1.Text);
 		}
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+        if (File.ReadAllText("./Configs/selectedAPI.txt") == "mdev")
+        {
+            //ZROB TO ZJEBIE
+            if (NamedPipes.NamedPipeExist(NamedPipes.luapipename))//check if the pipe exist
+            {
+                NamedPipes.LuaPipe(fastColoredTextBox1.Text);//lua pipe function to send the script
+            }
+            else
+            {
+                MessageBox.Show($"Inject {Functions.exploitdllname} before Using this!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);//if the pipe can't be found a messagebox will appear
+                return;
+            }
+        }
+        File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button3_Click(object sender, EventArgs e)

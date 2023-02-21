@@ -44,8 +44,8 @@ public class uc_options : UserControl
 	private Guna2Button guna2Button9;
 
 	private Guna2Button guna2Button11;
-
-	private Guna2Button guna2Button10;
+    private Guna2Button guna2Button3;
+    private Guna2Button guna2Button10;
 
 	public uc_options()
 	{
@@ -142,6 +142,7 @@ public class uc_options : UserControl
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
@@ -358,12 +359,29 @@ public class uc_options : UserControl
             this.guna2Button11.Text = "NSFW (18+)";
             this.guna2Button11.Click += new System.EventHandler(this.guna2Button11_Click);
             // 
+            // guna2Button3
+            // 
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(602, 174);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button3.TabIndex = 17;
+            this.guna2Button3.Text = "Mdev API";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click_1);
+            // 
             // uc_options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.guna2Button11);
             this.Controls.Add(this.guna2Button10);
             this.Controls.Add(this.guna2Button9);
@@ -399,5 +417,10 @@ public class uc_options : UserControl
     private void guna2Button3_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void guna2Button3_Click_1(object sender, EventArgs e)
+    {
+        File.WriteAllText("./Configs/selectedAPI.txt", "mdev");
     }
 }

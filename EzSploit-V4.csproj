@@ -52,4 +52,7 @@
       <LastGenOutput>EzSploit_REBORN.UserControls.uc_home.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MdevD\" />
+  </ItemGroup>
 </Project>
