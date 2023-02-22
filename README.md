@@ -24,6 +24,4 @@ EzSploit 3.2
 
 -fix WeAreDevs 
 
--update APIs
-
--script tabs
+-reduce files
