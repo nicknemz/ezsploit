@@ -14,7 +14,9 @@ namespace EzSploit_REBORN;
 public class roblox : Form
 {
 
-	private KrnlApi ezsploitkrnl = new KrnlApi();
+    //git push -f origin master     zebys kurwa nie zapomnial
+
+    private KrnlApi ezsploitkrnl = new KrnlApi();   //i narpraw kurwo easyexploits
 
 	private Module ezsploitex = new Module();
 
@@ -395,6 +397,7 @@ public class roblox : Form
             this.label6.Size = new System.Drawing.Size(349, 25);
             this.label6.TabIndex = 0;
             this.label6.Text = "Select tab and start exploiting :)";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // guna2AnimateWindow1
             // 
@@ -431,6 +434,11 @@ public class roblox : Form
 	}
 
     private void label4_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void label6_Click(object sender, EventArgs e)
     {
 
     }
