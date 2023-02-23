@@ -35,7 +35,7 @@ public class Warning_ : Form
 
 	private void guna2Button1_Click(object sender, EventArgs e)
 	{
-		File.WriteAllText("./Configs/selectedTheme.txt", "nsfw");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "nsfw");
 		Close();
 	}
 

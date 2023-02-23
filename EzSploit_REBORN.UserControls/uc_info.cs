@@ -37,19 +37,19 @@ public class uc_info : UserControl
 	public uc_info()
 	{
 		InitializeComponent();
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "galaxy")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "galaxy")
 		{
 			BackgroundImage = Resources.starsback;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "classic")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "classic")
 		{
 			BackgroundImage = Resources._40_40_40;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "sus")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "sus")
 		{
 			BackgroundImage = Resources.anime3;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "nsfw")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "nsfw")
 		{
 			BackgroundImage = Resources.hentai3;
 		}
@@ -149,10 +149,10 @@ public class uc_info : UserControl
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label4.Location = new System.Drawing.Point(27, 232);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(153, 96);
+            this.label4.Size = new System.Drawing.Size(206, 48);
             this.label4.TabIndex = 7;
-            this.label4.Text = "You need a .txt or .lua file\r\nthat contains your script.\r\nYou just need to move\r\n" +
-    "txt or lua file into \"scripts\"\r\nFolder and then Refresh\r\nscript list";
+            this.label4.Text = "Just paste script in script textbox,\r\nwrite name in textbox near to save\r\nbutton " +
+    "and click save\r\n";
             // 
             // label5
             // 
@@ -174,11 +174,10 @@ public class uc_info : UserControl
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(510, 75);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(234, 96);
+            this.label6.Size = new System.Drawing.Size(234, 64);
             this.label6.TabIndex = 9;
             this.label6.Text = "Try another API (change in settings)\r\nor update api\'s via websites linked\r\nbelow." +
-    " Just download API and replace\r\nold file to new.\r\nAnd remember to Extract all Ex" +
-    "ploit\r\nfiles :D";
+    " Just download API and replace\r\nold file to new.";
             // 
             // label7
             // 
@@ -200,9 +199,9 @@ public class uc_info : UserControl
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label8.Location = new System.Drawing.Point(510, 232);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(165, 48);
+            this.label8.Size = new System.Drawing.Size(175, 32);
             this.label8.TabIndex = 15;
-            this.label8.Text = "You can check for updates\r\non EzSploit website linked\r\nbelow";
+            this.label8.Text = "Check for updates in options\r\ntab";
             // 
             // linkLabel4
             // 

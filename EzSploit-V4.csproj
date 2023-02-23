@@ -21,10 +21,10 @@
       <HintPath>..\..\..\Downloads\APIS\EasyExploits.dll</HintPath>
     </Reference>
     <Reference Include="FastColoredTextBox">
-      <HintPath>..\..\..\AppData\Local\Programs\EzSploit V3 p2\FastColoredTextBox.dll</HintPath>
+      <HintPath>..\..\..\Downloads\FastColoredTextBox.dll</HintPath>
     </Reference>
     <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\AppData\Local\Programs\EzSploit V3 p2\Guna.UI2.dll</HintPath>
+      <HintPath>..\..\..\Downloads\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="KrnlAPI">
       <HintPath>..\..\..\Downloads\APIS\KrnlAPI.dll</HintPath>
@@ -36,20 +36,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>EzSploit_REBORN.Properties.Resources.resx</DependentUpon>
     </Compile>
-    <Compile Update="EzSploit_REBORN.UserControls.uc_home.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>EzSploit_REBORN.UserControls.uc_home.resx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="EzSploit_REBORN.Properties.Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EzSploit_REBORN.Properties.Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Update="EzSploit_REBORN.UserControls.uc_home.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>EzSploit_REBORN.UserControls.uc_home.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

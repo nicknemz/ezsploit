@@ -1,7 +1,9 @@
 using System;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using EasyExploits;
 using EzSploit_REBORN.Properties;
@@ -44,29 +46,36 @@ public class uc_options : UserControl
 	private Guna2Button guna2Button9;
 
 	private Guna2Button guna2Button11;
+    private Label label2;
+    private Label label6;
+    private Label label7;
+    private Label installedver;
+    private Label newestver;
     private Guna2Button guna2Button3;
     private Guna2Button guna2Button10;
 
 	public uc_options()
 	{
 		InitializeComponent();
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "galaxy")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "galaxy")
 		{
 			BackgroundImage = Resources.starsback;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "classic")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "classic")
 		{
 			BackgroundImage = Resources._40_40_40;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "sus")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "sus")
 		{
 			BackgroundImage = Resources.anime1;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "nsfw")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "nsfw")
 		{
 			BackgroundImage = Resources.hentai2;
 		}
-	}
+        installedver.Text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\version.txt");
+        newestver.Text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\versionew.txt");
+    }
 
 	private void guna2Button1_Click(object sender, EventArgs e)
 	{
@@ -86,35 +95,35 @@ public class uc_options : UserControl
 
 	private void guna2Button5_Click(object sender, EventArgs e)
 	{
-		File.WriteAllText("./Configs/selectedAPI.txt", "WeAreDevs");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt", "WeAreDevs");
 	}
 
 	private void guna2Button6_Click(object sender, EventArgs e)
 	{
-		File.WriteAllText("./Configs/selectedAPI.txt", "EasyExploits");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt", "EasyExploits");
 	}
 
 	private void guna2Button7_Click(object sender, EventArgs e)
 	{
-		File.WriteAllText("./Configs/selectedAPI.txt", "Krnl");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt", "Krnl");
 	}
 
 	private void guna2Button8_Click(object sender, EventArgs e)
 	{
 		BackgroundImage = Resources.starsback;
-		File.WriteAllText("./Configs/selectedTheme.txt", "galaxy");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "galaxy");
 	}
 
 	private void guna2Button9_Click(object sender, EventArgs e)
 	{
 		BackgroundImage = Resources._40_40_40;
-		File.WriteAllText("./Configs/selectedTheme.txt", "classic");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "classic");
 	}
 
 	private void guna2Button10_Click(object sender, EventArgs e)
 	{
 		BackgroundImage = Resources.anime1;
-		File.WriteAllText("./Configs/selectedTheme.txt", "sus");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "sus");
 	}
 
 	protected override void Dispose(bool disposing)
@@ -142,6 +151,11 @@ public class uc_options : UserControl
             this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.installedver = new System.Windows.Forms.Label();
+            this.newestver = new System.Windows.Forms.Label();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
@@ -359,6 +373,59 @@ public class uc_options : UserControl
             this.guna2Button11.Text = "NSFW (18+)";
             this.guna2Button11.Click += new System.EventHandler(this.guna2Button11_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(38, 210);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(149, 20);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "EzSploit Updates";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.Control;
+            this.label6.Location = new System.Drawing.Point(42, 234);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 13);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "installed version:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.Control;
+            this.label7.Location = new System.Drawing.Point(39, 259);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(81, 13);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "newest version:";
+            // 
+            // installedver
+            // 
+            this.installedver.AutoSize = true;
+            this.installedver.ForeColor = System.Drawing.SystemColors.Control;
+            this.installedver.Location = new System.Drawing.Point(133, 234);
+            this.installedver.Name = "installedver";
+            this.installedver.Size = new System.Drawing.Size(13, 13);
+            this.installedver.TabIndex = 20;
+            this.installedver.Text = "0";
+            this.installedver.Click += new System.EventHandler(this.installedver_Click);
+            // 
+            // newestver
+            // 
+            this.newestver.AutoSize = true;
+            this.newestver.ForeColor = System.Drawing.SystemColors.Control;
+            this.newestver.Location = new System.Drawing.Point(133, 259);
+            this.newestver.Name = "newestver";
+            this.newestver.Size = new System.Drawing.Size(13, 13);
+            this.newestver.TabIndex = 21;
+            this.newestver.Text = "0";
+            // 
             // guna2Button3
             // 
             this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -368,12 +435,12 @@ public class uc_options : UserControl
             this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(602, 174);
+            this.guna2Button3.Location = new System.Drawing.Point(42, 284);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(127, 46);
-            this.guna2Button3.TabIndex = 17;
-            this.guna2Button3.Text = "Mdev API";
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click_1);
+            this.guna2Button3.TabIndex = 22;
+            this.guna2Button3.Text = "Update EzSploit";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // uc_options
             // 
@@ -382,6 +449,11 @@ public class uc_options : UserControl
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.newestver);
+            this.Controls.Add(this.installedver);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.guna2Button11);
             this.Controls.Add(this.guna2Button10);
             this.Controls.Add(this.guna2Button9);
@@ -414,13 +486,14 @@ public class uc_options : UserControl
 	{
 	}
 
-    private void guna2Button3_Click(object sender, EventArgs e)
+    private void installedver_Click(object sender, EventArgs e)
     {
-
+        
     }
 
-    private void guna2Button3_Click_1(object sender, EventArgs e)
+    private void guna2Button3_Click(object sender, EventArgs e)
     {
-        File.WriteAllText("./Configs/selectedAPI.txt", "mdev");
+        Process.Start(@"c:\mikusdevPrograms\ezsploit\EzSploit Updater.exe");
+        Application.Exit();
     }
 }

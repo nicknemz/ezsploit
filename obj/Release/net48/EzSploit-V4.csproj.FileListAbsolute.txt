@@ -9,16 +9,13 @@ C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_REBORN.UserContr
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_REBORN.UserControls.uc_info.resources
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_REBORN.UserControls.uc_options.resources
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_V3.krnlfix_.resources
-C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_V3.SaveWindow_.resources
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V4.csproj.GenerateResource.cache
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V4.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V4.csproj.CoreCompileInputs.cache
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit-V4.csproj.CopyComplete
-C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_REBORN.roblox.resources
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_REBORN.Form1.resources
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe.config
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.pdb
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit V3.exe
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit V3.pdb
-C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit_V3.pythonwarn.resources

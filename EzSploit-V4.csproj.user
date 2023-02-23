@@ -14,16 +14,7 @@
     <Compile Update="EzSploit_REBORN\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="EzSploit_REBORN\roblox.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="EzSploit_V3\Krnlfix_.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="EzSploit_V3\pythonwarn.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="EzSploit_V3\SaveWindow_.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="EzSploit_V3\Warning_.cs">

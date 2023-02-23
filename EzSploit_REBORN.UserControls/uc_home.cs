@@ -10,6 +10,7 @@ using EzSploit_V3;
 using FastColoredTextBoxNS;
 using Guna.UI2.WinForms;
 using KrnlAPI;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace EzSploit_REBORN.UserControls;
 
@@ -34,47 +35,37 @@ public class uc_home : UserControl
 	private Guna2Button guna2Button4;
 
 	private Guna2Button guna2Button5;
-
-	private Guna2Button guna2Button6;
+    private Guna2TextBox savetextbox;
+    private Guna2Button guna2Button6;
 
 	public uc_home()
 	{
 		InitializeComponent();
-        if (File.ReadAllText("./Configs/selectedTheme.txt") == "galaxy")
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "galaxy")
 		{
 			BackgroundImage = Resources.starsback;
 			fastColoredTextBox1.BackgroundImage = Resources.starsback;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "classic")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "classic")
 		{
 			BackgroundImage = Resources._40_40_40;
 			fastColoredTextBox1.BackgroundImage = Resources._20_20_20;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "sus")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "sus")
 		{
 			BackgroundImage = Resources._40_40_40;
 			fastColoredTextBox1.BackgroundImage = Resources.anime2;
 		}
-		if (File.ReadAllText("./Configs/selectedTheme.txt") == "nsfw")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "nsfw")
 		{
 			BackgroundImage = Resources._40_40_40;
 			fastColoredTextBox1.BackgroundImage = Resources.anime31;
 		}
 		listBox1.Items.Clear();
-		Functions.PopulateListBox(listBox1, "./Scripts", "*.txt");
-		Functions.PopulateListBox(listBox1, "./Scripts", "*.lua");
-		if (File.ReadAllText("./Configs/textboxreset.txt") == "doreset")
-		{
-			fastColoredTextBox1.Text = "-- Welcome to EzSploit--\r\n--V4--\r\n\r\n--Created by mikusweb(or MikusseQ, Mikq, mikusDEV, mikusgszyp)--\r\n\r\n--Version 4.0--\r\n\r\n--Help in \"Info\" tab--\r\n\r\n--You can select theme in options--\r\n\r\n--API supported:EasyExploits, KRNL --\r\n\r\n--You can request more APIs in comments--\r\n--on EzSploit Website (linked in \"Info\")--";
-			File.WriteAllText("./Configs/textboxreset.txt", "dontreset");
-			File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
-		}
-		if (File.ReadAllText("./Configs/textboxreset.txt") == "dontreset")
-		{
-			fastColoredTextBox1.Text = File.ReadAllText("./Configs/textboxconf.txt");
-			File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
-		}
-	}
+		Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.txt");
+		Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.lua");
+        fastColoredTextBox1.Text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt");
+    }
 
     public void wait(int milliseconds)
     {
@@ -105,54 +96,37 @@ public class uc_home : UserControl
 
 	private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
 	{
-		fastColoredTextBox1.Text = File.ReadAllText($"./Scripts/{listBox1.SelectedItem}");
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+        fastColoredTextBox1.Text = File.ReadAllText($@"c:/mikusdevPrograms/ezsploit/Scripts/{listBox1.SelectedItem}");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button1_Click(object sender, EventArgs e)
 	{
 		ezsploitkrnl.Initialize();
 		wait(1000);
-        if (File.ReadAllText("./Configs/selectedAPI.txt") == "EasyExploits")
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt") == "EasyExploits")
 		{
 			ezsploitex.LaunchExploit();
 		}
-		if (File.ReadAllText("./Configs/selectedAPI.txt") == "Krnl")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt") == "Krnl")
 		{
             krnlfix_ krnlfix = new krnlfix_();
             DialogResult dialogResult = krnlfix.ShowDialog();
 		}
-        if (File.ReadAllText("./Configs/selectedAPI.txt") == "mdev")
-        {
-            Functions.Inject();
-        }
-        File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button2_Click(object sender, EventArgs e)
 	{
-		if (File.ReadAllText("./Configs/selectedAPI.txt") == "EasyExploits")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt") == "EasyExploits")
 		{
 			ezsploitex.ExecuteScript(fastColoredTextBox1.Text);
 		}
-		if (File.ReadAllText("./Configs/selectedAPI.txt") == "Krnl")
+		if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt") == "Krnl")
 		{
 			ezsploitkrnl.Execute(fastColoredTextBox1.Text);
 		}
-        if (File.ReadAllText("./Configs/selectedAPI.txt") == "mdev")
-        {
-            //ZROB TO ZJEBIE
-            if (NamedPipes.NamedPipeExist(NamedPipes.luapipename))//check if the pipe exist
-            {
-                NamedPipes.LuaPipe(fastColoredTextBox1.Text);//lua pipe function to send the script
-            }
-            else
-            {
-                MessageBox.Show($"Inject {Functions.exploitdllname} before Using this!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);//if the pipe can't be found a messagebox will appear
-                return;
-            }
-        }
-        File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button3_Click(object sender, EventArgs e)
@@ -163,38 +137,33 @@ public class uc_home : UserControl
 			openFileDialog.Title = "Open";
 			fastColoredTextBox1.Text = File.ReadAllText(openFileDialog.FileName);
 		}
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
-	}
-
-	private void guna2Button4_Click(object sender, EventArgs e)
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
+    }
+    private void guna2Button4_Click(object sender, EventArgs e)
 	{
-        SaveWindow_ saveWindow_ = new SaveWindow_();
-        DialogResult dialogResult = saveWindow_.ShowDialog(); 
-		
-		
-		SaveFileDialog saveFileDialog = new SaveFileDialog();
-		if (saveFileDialog.ShowDialog() != DialogResult.OK)
-		{
-			return;
-		}
-		using Stream stream = File.Open(saveFileDialog.FileName, FileMode.CreateNew);
-		using StreamWriter streamWriter = new StreamWriter(stream);
-		streamWriter.Write(fastColoredTextBox1.Text);
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+        using (FileStream fscriptsave = File.Create(@"c:\mikusdevPrograms\ezsploit\Scripts\" + savetextbox.Text + ".txt")) ;
+
+        File.WriteAllText($@"c:\mikusdevPrograms\ezsploit\Scripts\{savetextbox.Text}{".txt"}", fastColoredTextBox1.Text);
+
+        listBox1.Items.Clear();
+        Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.txt");
+        Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", " *.lua");
+
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button6_Click(object sender, EventArgs e)
 	{
 		fastColoredTextBox1.Clear();
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	private void guna2Button5_Click(object sender, EventArgs e)
 	{
 		listBox1.Items.Clear();
-		Functions.PopulateListBox(listBox1, "./Scripts", "*.txt");
-		Functions.PopulateListBox(listBox1, "./Scripts", "*.lua");
-		File.WriteAllText("./Configs/textboxconf.txt", fastColoredTextBox1.Text);
+		Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.txt");
+		Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", " *.lua");
+		File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
 	protected override void Dispose(bool disposing)
@@ -208,149 +177,220 @@ public class uc_home : UserControl
 
 	private void InitializeComponent()
 	{
-		this.components = new System.ComponentModel.Container();
-		System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EzSploit_REBORN.UserControls.uc_home));
-		this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
-		this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-		this.listBox1 = new System.Windows.Forms.ListBox();
-		this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-		this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-		this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-		this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-		this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-		((System.ComponentModel.ISupportInitialize)this.fastColoredTextBox1).BeginInit();
-		base.SuspendLayout();
-		this.fastColoredTextBox1.AutoCompleteBracketsList = new char[10] { '(', ')', '{', '}', '[', ']', '"', '"', '\'', '\'' };
-		this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
-		this.fastColoredTextBox1.BackBrush = null;
-		this.fastColoredTextBox1.CharHeight = 14;
-		this.fastColoredTextBox1.CharWidth = 8;
-		this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-		this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(100, 180, 180, 180);
-		this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75f);
-		this.fastColoredTextBox1.ForeColor = System.Drawing.Color.Lime;
-		this.fastColoredTextBox1.IndentBackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.fastColoredTextBox1.IsReplaceMode = false;
-		this.fastColoredTextBox1.Location = new System.Drawing.Point(4, 4);
-		this.fastColoredTextBox1.Name = "fastColoredTextBox1";
-		this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
-		this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(60, 0, 0, 255);
-		this.fastColoredTextBox1.ServiceColors = (FastColoredTextBoxNS.ServiceColors)resources.GetObject("fastColoredTextBox1.ServiceColors");
-		this.fastColoredTextBox1.Size = new System.Drawing.Size(604, 351);
-		this.fastColoredTextBox1.TabIndex = 0;
-		this.fastColoredTextBox1.Zoom = 100;
-		this.fastColoredTextBox1.Load += new System.EventHandler(fastColoredTextBox1_Load);
-		this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-		this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-		this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9f);
-		this.guna2Button1.ForeColor = System.Drawing.Color.White;
-		this.guna2Button1.Location = new System.Drawing.Point(4, 364);
-		this.guna2Button1.Name = "guna2Button1";
-		this.guna2Button1.Size = new System.Drawing.Size(107, 38);
-		this.guna2Button1.TabIndex = 1;
-		this.guna2Button1.Text = "Inject";
-		this.guna2Button1.Click += new System.EventHandler(guna2Button1_Click);
-		this.listBox1.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-		this.listBox1.ForeColor = System.Drawing.Color.Magenta;
-		this.listBox1.FormattingEnabled = true;
-		this.listBox1.Location = new System.Drawing.Point(614, 4);
-		this.listBox1.Name = "listBox1";
-		this.listBox1.Size = new System.Drawing.Size(156, 351);
-		this.listBox1.TabIndex = 2;
-		this.listBox1.SelectedIndexChanged += new System.EventHandler(listBox1_SelectedIndexChanged);
-		this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-		this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-		this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9f);
-		this.guna2Button2.ForeColor = System.Drawing.Color.White;
-		this.guna2Button2.Location = new System.Drawing.Point(117, 364);
-		this.guna2Button2.Name = "guna2Button2";
-		this.guna2Button2.Size = new System.Drawing.Size(107, 38);
-		this.guna2Button2.TabIndex = 3;
-		this.guna2Button2.Text = "Execute";
-		this.guna2Button2.Click += new System.EventHandler(guna2Button2_Click);
-		this.guna2Button3.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-		this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-		this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9f);
-		this.guna2Button3.ForeColor = System.Drawing.Color.White;
-		this.guna2Button3.Location = new System.Drawing.Point(230, 364);
-		this.guna2Button3.Name = "guna2Button3";
-		this.guna2Button3.Size = new System.Drawing.Size(107, 38);
-		this.guna2Button3.TabIndex = 4;
-		this.guna2Button3.Text = "Open File";
-		this.guna2Button3.Click += new System.EventHandler(guna2Button3_Click);
-		this.guna2Button4.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-		this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-		this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9f);
-		this.guna2Button4.ForeColor = System.Drawing.Color.White;
-		this.guna2Button4.Location = new System.Drawing.Point(343, 364);
-		this.guna2Button4.Name = "guna2Button4";
-		this.guna2Button4.Size = new System.Drawing.Size(107, 38);
-		this.guna2Button4.TabIndex = 5;
-		this.guna2Button4.Text = "Save file";
-		this.guna2Button4.Click += new System.EventHandler(guna2Button4_Click);
-		this.guna2Button5.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-		this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-		this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9f);
-		this.guna2Button5.ForeColor = System.Drawing.Color.White;
-		this.guna2Button5.Location = new System.Drawing.Point(663, 364);
-		this.guna2Button5.Name = "guna2Button5";
-		this.guna2Button5.Size = new System.Drawing.Size(107, 38);
-		this.guna2Button5.TabIndex = 6;
-		this.guna2Button5.Text = "Refresh";
-		this.guna2Button5.Click += new System.EventHandler(guna2Button5_Click);
-		this.guna2Button6.BackColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-		this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(169, 169, 169);
-		this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(141, 141, 141);
-		this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(20, 20, 20);
-		this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9f);
-		this.guna2Button6.ForeColor = System.Drawing.Color.White;
-		this.guna2Button6.Location = new System.Drawing.Point(501, 364);
-		this.guna2Button6.Name = "guna2Button6";
-		this.guna2Button6.Size = new System.Drawing.Size(107, 38);
-		this.guna2Button6.TabIndex = 7;
-		this.guna2Button6.Text = "Clear";
-		this.guna2Button6.Click += new System.EventHandler(guna2Button6_Click);
-		base.AutoScaleDimensions = new System.Drawing.SizeF(6f, 13f);
-		base.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-		base.Controls.Add(this.guna2Button6);
-		base.Controls.Add(this.guna2Button5);
-		base.Controls.Add(this.guna2Button4);
-		base.Controls.Add(this.guna2Button3);
-		base.Controls.Add(this.guna2Button2);
-		base.Controls.Add(this.listBox1);
-		base.Controls.Add(this.guna2Button1);
-		base.Controls.Add(this.fastColoredTextBox1);
-		base.Name = "uc_home";
-		base.Size = new System.Drawing.Size(773, 405);
-		base.Load += new System.EventHandler(uc_home_Load);
-		((System.ComponentModel.ISupportInitialize)this.fastColoredTextBox1).EndInit();
-		base.ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.fastColoredTextBox1 = new FastColoredTextBoxNS.FastColoredTextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
+            this.savetextbox = new Guna.UI2.WinForms.Guna2TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // fastColoredTextBox1
+            // 
+            this.fastColoredTextBox1.AutoCompleteBracketsList = new char[] {
+        '(',
+        ')',
+        '{',
+        '}',
+        '[',
+        ']',
+        '\"',
+        '\"',
+        '\'',
+        '\''};
+            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(27, 14);
+            this.fastColoredTextBox1.BackBrush = null;
+            this.fastColoredTextBox1.CharHeight = 14;
+            this.fastColoredTextBox1.CharWidth = 8;
+            this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fastColoredTextBox1.ForeColor = System.Drawing.Color.Lime;
+            this.fastColoredTextBox1.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.fastColoredTextBox1.IsReplaceMode = false;
+            this.fastColoredTextBox1.Location = new System.Drawing.Point(4, 4);
+            this.fastColoredTextBox1.Name = "fastColoredTextBox1";
+            this.fastColoredTextBox1.Paddings = new System.Windows.Forms.Padding(0);
+            this.fastColoredTextBox1.SelectionColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(255)))));
+            this.fastColoredTextBox1.ServiceColors = null;
+            this.fastColoredTextBox1.Size = new System.Drawing.Size(604, 351);
+            this.fastColoredTextBox1.TabIndex = 0;
+            this.fastColoredTextBox1.Zoom = 100;
+            this.fastColoredTextBox1.TextChanged += new System.EventHandler<FastColoredTextBoxNS.TextChangedEventArgs>(this.fastColoredTextBox1_TextChanged);
+            this.fastColoredTextBox1.Load += new System.EventHandler(this.fastColoredTextBox1_Load);
+            this.fastColoredTextBox1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.fastColoredTextBox1_KeyUp);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.Location = new System.Drawing.Point(4, 364);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(107, 38);
+            this.guna2Button1.TabIndex = 1;
+            this.guna2Button1.Text = "Inject";
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // listBox1
+            // 
+            this.listBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBox1.ForeColor = System.Drawing.Color.Magenta;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(614, 4);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(156, 351);
+            this.listBox1.TabIndex = 2;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.Location = new System.Drawing.Point(117, 364);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(107, 38);
+            this.guna2Button2.TabIndex = 3;
+            this.guna2Button2.Text = "Execute";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
+            // 
+            // guna2Button3
+            // 
+            this.guna2Button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(230, 364);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(107, 38);
+            this.guna2Button3.TabIndex = 4;
+            this.guna2Button3.Text = "Open File";
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
+            // 
+            // guna2Button4
+            // 
+            this.guna2Button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.Location = new System.Drawing.Point(343, 377);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.Size = new System.Drawing.Size(107, 25);
+            this.guna2Button4.TabIndex = 5;
+            this.guna2Button4.Text = "Save file";
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
+            // guna2Button5
+            // 
+            this.guna2Button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button5.ForeColor = System.Drawing.Color.White;
+            this.guna2Button5.Location = new System.Drawing.Point(663, 364);
+            this.guna2Button5.Name = "guna2Button5";
+            this.guna2Button5.Size = new System.Drawing.Size(107, 38);
+            this.guna2Button5.TabIndex = 6;
+            this.guna2Button5.Text = "Refresh";
+            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
+            // 
+            // guna2Button6
+            // 
+            this.guna2Button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button6.ForeColor = System.Drawing.Color.White;
+            this.guna2Button6.Location = new System.Drawing.Point(501, 364);
+            this.guna2Button6.Name = "guna2Button6";
+            this.guna2Button6.Size = new System.Drawing.Size(107, 38);
+            this.guna2Button6.TabIndex = 7;
+            this.guna2Button6.Text = "Clear";
+            this.guna2Button6.Click += new System.EventHandler(this.guna2Button6_Click);
+            // 
+            // savetextbox
+            // 
+            this.savetextbox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.savetextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.savetextbox.DefaultText = "";
+            this.savetextbox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.savetextbox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.savetextbox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.savetextbox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.savetextbox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.savetextbox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.savetextbox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.savetextbox.ForeColor = System.Drawing.Color.Lime;
+            this.savetextbox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.savetextbox.Location = new System.Drawing.Point(344, 361);
+            this.savetextbox.Name = "savetextbox";
+            this.savetextbox.PasswordChar = '\0';
+            this.savetextbox.PlaceholderText = "";
+            this.savetextbox.SelectedText = "";
+            this.savetextbox.Size = new System.Drawing.Size(106, 14);
+            this.savetextbox.TabIndex = 8;
+            // 
+            // uc_home
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.savetextbox);
+            this.Controls.Add(this.guna2Button6);
+            this.Controls.Add(this.guna2Button5);
+            this.Controls.Add(this.guna2Button4);
+            this.Controls.Add(this.guna2Button3);
+            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.guna2Button1);
+            this.Controls.Add(this.fastColoredTextBox1);
+            this.Name = "uc_home";
+            this.Size = new System.Drawing.Size(773, 405);
+            this.Load += new System.EventHandler(this.uc_home_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
+            this.ResumeLayout(false);
+
 	}
 
 	public void fastColoredTextBox1_Load(object sender, EventArgs e)
 	{
 	}
+
+    private void fastColoredTextBox1_TextChanged(object sender, TextChangedEventArgs e)
+    {
+    }
+
+    private void fastColoredTextBox1_KeyUp(object sender, KeyEventArgs e)
+    {
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
+    }
 }
