@@ -15,6 +15,7 @@ namespace EzSploit_REBORN;
 
 public class Form1 : Form
 {
+    WebClient webClient = new WebClient();
 
     //git push -f origin master     zebys kurwa nie zapomnial
 
@@ -79,9 +80,9 @@ public class Form1 : Form
         DirectoryInfo di = Directory.CreateDirectory(@"c:\mikusdevPrograms\ezsploit\Configs");
         DirectoryInfo di2 = Directory.CreateDirectory(@"c:\mikusdevPrograms\ezsploit\Scripts");
 
-        using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt")) ;
-        using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt")) ;
-        using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt")) ;
+        using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt"));
+        using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt"));
+        using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt"));
 
         File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "classic");
         File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt", "EasyExploits");
@@ -422,7 +423,7 @@ public class Form1 : Form
             this.guna2AnimateWindow1.Interval = 800;
             this.guna2AnimateWindow1.TargetForm = this;
             // 
-            // roblox
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -432,8 +433,9 @@ public class Form1 : Form
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "roblox";
+            this.Name = "Form1";
             this.Text = "EzSploit V4";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -458,5 +460,10 @@ public class Form1 : Form
     private void label6_Click(object sender, EventArgs e)
     {
 
+    }
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+        webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/extinj.exe", @"c:\mikusdevPrograms\ezsploit\extinj.exe");
     }
 }

@@ -3,7 +3,6 @@ using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using AxonSimpleUI;
 using EasyExploits;
 using EzSploit_REBORN.Properties;
 using EzSploit_V3;
@@ -36,6 +35,7 @@ public class uc_home : UserControl
 
 	private Guna2Button guna2Button5;
     private Guna2TextBox savetextbox;
+    private Guna2Button guna2Button7;
     private Guna2Button guna2Button6;
 
 	public uc_home()
@@ -187,6 +187,7 @@ public class uc_home : UserControl
             this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
             this.savetextbox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -209,6 +210,7 @@ public class uc_home : UserControl
             this.fastColoredTextBox1.CharWidth = 8;
             this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+            this.fastColoredTextBox1.Font = new System.Drawing.Font("Courier New", 9.75F);
             this.fastColoredTextBox1.ForeColor = System.Drawing.Color.Lime;
             this.fastColoredTextBox1.IndentBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.fastColoredTextBox1.IsReplaceMode = false;
@@ -247,9 +249,9 @@ public class uc_home : UserControl
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.listBox1.ForeColor = System.Drawing.Color.Magenta;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(614, 4);
+            this.listBox1.Location = new System.Drawing.Point(614, 30);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(156, 351);
+            this.listBox1.Size = new System.Drawing.Size(156, 325);
             this.listBox1.TabIndex = 2;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -360,10 +362,28 @@ public class uc_home : UserControl
             this.savetextbox.Size = new System.Drawing.Size(106, 14);
             this.savetextbox.TabIndex = 8;
             // 
+            // guna2Button7
+            // 
+            this.guna2Button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button7.ForeColor = System.Drawing.Color.White;
+            this.guna2Button7.Location = new System.Drawing.Point(614, 4);
+            this.guna2Button7.Name = "guna2Button7";
+            this.guna2Button7.Size = new System.Drawing.Size(156, 20);
+            this.guna2Button7.TabIndex = 9;
+            this.guna2Button7.Text = "Delete Script";
+            this.guna2Button7.Click += new System.EventHandler(this.guna2Button7_Click);
+            // 
             // uc_home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.guna2Button7);
             this.Controls.Add(this.savetextbox);
             this.Controls.Add(this.guna2Button6);
             this.Controls.Add(this.guna2Button5);
@@ -392,5 +412,14 @@ public class uc_home : UserControl
     private void fastColoredTextBox1_KeyUp(object sender, KeyEventArgs e)
     {
         File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
+    }
+
+    private void guna2Button7_Click(object sender, EventArgs e)
+    {
+        File.Delete(@"c:\mikusdevPrograms\ezsploit\Scripts\" + listBox1.SelectedItem);
+
+        listBox1.Items.Clear();
+        Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.txt");
+        Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", " *.lua");
     }
 }

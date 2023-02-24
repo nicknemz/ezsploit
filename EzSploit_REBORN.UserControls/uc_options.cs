@@ -494,6 +494,7 @@ public class uc_options : UserControl
     private void guna2Button3_Click(object sender, EventArgs e)
     {
         Process.Start(@"c:\mikusdevPrograms\ezsploit\EzSploit Updater.exe");
+        Thread.Sleep(50);
         Application.Exit();
     }
 }

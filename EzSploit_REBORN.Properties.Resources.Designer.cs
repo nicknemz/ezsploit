@@ -123,16 +123,6 @@ internal class EzSploit_REBORN_Properties_Resources {
     /// <summary>
     ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
     /// </summary>
-    internal static System.Drawing.Bitmap fortnite {
-        get {
-            object obj = ResourceManager.GetObject("fortnite", resourceCulture);
-            return ((System.Drawing.Bitmap)(obj));
-        }
-    }
-    
-    /// <summary>
-    ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
-    /// </summary>
     internal static System.Drawing.Bitmap hentai2 {
         get {
             object obj = ResourceManager.GetObject("hentai2", resourceCulture);

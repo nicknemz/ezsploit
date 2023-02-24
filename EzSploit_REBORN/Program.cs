@@ -14,7 +14,6 @@ internal static class Program
 
 	private static void Main()
 	{
-        string configsfolder = @"c:\mikusdevPrograms\ezsploit";
         DirectoryInfo di = Directory.CreateDirectory(@"c:\mikusdevPrograms\ezsploit");
         WebClient webClient = new WebClient();
         
@@ -22,18 +21,16 @@ internal static class Program
 
         using (FileStream fs = File.Create(@"c:\mikusdevPrograms\ezsploit\version.txt"))
         Thread.Sleep(1000);
-        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\version.txt", "403");
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\version.txt", "405");
         webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/versionew.txt", @"c:\mikusdevPrograms\ezsploit\versionew.txt");
 
         Application.EnableVisualStyles();
 		Application.SetCompatibleTextRenderingDefault(defaultValue: false);
 
-        WebClient webClient1 = new WebClient();
-        webClient1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/Guna.UI2.dll", @"c:\mikusdevPrograms\ezsploit\Guna.UI2.dll");
-        webClient1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/FastColoredTextBox.dll", @"c:\mikusdevPrograms\ezsploit\FastColoredTextBox.dll");
-        webClient1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EasyExploits.dll", @"c:\mikusdevPrograms\ezsploit\EasyExploits.dll");
-        webClient1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/KrnlAPI.dll", @"c:\mikusdevPrograms\ezsploit\KrnlAPI.dll");
-        webClient1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/extinj.exe", @"c:\mikusdevPrograms\ezsploit\extinj.exe");
+        webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/Guna.UI2.dll", @"c:\mikusdevPrograms\ezsploit\Guna.UI2.dll");
+        webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/FastColoredTextBox.dll", @"c:\mikusdevPrograms\ezsploit\FastColoredTextBox.dll");
+        webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EasyExploits.dll", @"c:\mikusdevPrograms\ezsploit\EasyExploits.dll");
+        webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/KrnlAPI.dll", @"c:\mikusdevPrograms\ezsploit\KrnlAPI.dll");
 
         Application.Run(new Form1());
 	}
