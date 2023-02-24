@@ -10,11 +10,21 @@ using FastColoredTextBoxNS;
 using Guna.UI2.WinForms;
 using Guna.UI2.WinForms.Enums;
 using KrnlAPI;
+using System.Threading;
+using DiscordRPC;
+using DiscordRPC.Logging;
+using System.Reflection.Emit;
 
 namespace EzSploit_REBORN;
 
+
 public class Form1 : Form
 {
+    public DiscordRpcClient client;
+
+
+
+
     WebClient webClient = new WebClient();
 
     //git push -f origin master     zebys kurwa nie zapomnial
@@ -27,17 +37,17 @@ public class Form1 : Form
 
 	private Panel panel1;
 
-	private Button button2;
+	private System.Windows.Forms.Button button2;
 
-	private Button button1;
+	private System.Windows.Forms.Button button1;
 
-	private Label label3;
+	private System.Windows.Forms.Label label3;
 
-	private Label label2;
+	private System.Windows.Forms.Label label2;
 
-	private Label label1;
+	private System.Windows.Forms.Label label1;
 
-	private Button button11;
+	private System.Windows.Forms.Button button11;
 
 	private Guna2Button guna2Button1;
 
@@ -55,23 +65,25 @@ public class Form1 : Form
 
 	private Guna2DragControl guna2DragControl1;
 
-	private Label label4;
+	private System.Windows.Forms.Label label4;
 
-	private Label label5;
+	private System.Windows.Forms.Label label5;
 
 	private Guna2Button guna2Button8;
 
 	private Guna2Button guna2Button7;
 
-	private Label label7;
+	private System.Windows.Forms.Label label7;
 
-	private Label label6;
+	private System.Windows.Forms.Label label6;
+    private Guna2AnimateWindow guna2AnimateWindow1;
+   
 
-	private Guna2AnimateWindow guna2AnimateWindow1;
-
-	public Form1()
+    public Form1()
 	{
 		InitializeComponent();
+
+        
 
         if (Directory.Exists(@"c:\mikusdevPrograms\ezsploit\Configs"))
         {
@@ -88,9 +100,13 @@ public class Form1 : Form
         File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt", "EasyExploits");
 
 
+
+
     }
 
-	private void addUserControl(UserControl userControl)
+    
+
+    private void addUserControl(UserControl userControl)
 	{
 		userControl.Dock = DockStyle.Fill;
 		panel2.Controls.Clear();
@@ -412,9 +428,11 @@ public class Form1 : Form
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(13, 7);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(349, 25);
+            this.label6.Size = new System.Drawing.Size(637, 125);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Select tab and start exploiting :)";
+            this.label6.Text = "Select tab and start exploiting :)\r\n\r\nif you are using EzSploit first time, \r\nI r" +
+    "eccomend you to go to options tab and hit Update button.\r\nThis will fix injectin" +
+    "g errors";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // guna2AnimateWindow1
@@ -464,6 +482,46 @@ public class Form1 : Form
 
     private void Form1_Load(object sender, EventArgs e)
     {
-        webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/extinj.exe", @"c:\mikusdevPrograms\ezsploit\extinj.exe");
+
+
+        client = new DiscordRpcClient("1078735530654707772");
+
+        //Set the logger
+        client.Logger = new ConsoleLogger() { Level = LogLevel.Warning };
+        client.OnReady += (sender, e) =>
+        {
+            Console.WriteLine("Received Ready from user {0}", e.User.Username);
+        };
+
+        client.OnPresenceUpdate += (sender, e) =>
+        {
+            Console.WriteLine("Received Update! {0}", e.Presence);
+        };
+
+        client.Initialize();
+
+        // == Set the presence
+        client.SetPresence(new RichPresence()
+        {
+            Details = "Roblox Script Executor",
+            State = " ",
+            Timestamps = Timestamps.FromTimeSpan(10),
+
+            Assets = new Assets()
+            {
+                LargeImageKey = "https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/ezico.png",
+            },
+
+            Buttons = new DiscordRPC.Button[]
+            {
+                new DiscordRPC.Button() { Label = "Download", Url = "https://sites.google.com/view/mksdv/gry-i-pliki/ezsploit" }
+
+            }
+
+
+
+        });
     }
+
+
 }

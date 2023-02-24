@@ -19,3 +19,6 @@ C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.exe
 C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\EzSploit V3.pdb
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit V3.exe
 C:\Users\mdev\Documents\git\ezsploit\obj\Release\net48\EzSploit V3.pdb
+C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\DiscordRPC.dll
+C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\Newtonsoft.Json.dll
+C:\Users\mdev\Documents\git\ezsploit\bin\Release\net48\WeAreDevs_API.dll

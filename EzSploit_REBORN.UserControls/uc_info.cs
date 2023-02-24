@@ -53,7 +53,11 @@ public class uc_info : UserControl
 		{
 			BackgroundImage = Resources.hentai3;
 		}
-	}
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "skullemoji")
+        {
+            BackgroundImage = Resources.nicknamez2;
+        }
+    }
 
 	private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
 	{

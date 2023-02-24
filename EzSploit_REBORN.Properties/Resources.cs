@@ -133,7 +133,34 @@ internal class Resources
 		}
 	}
 
-	internal Resources()
+    internal static Bitmap nicknamez1
+    {
+        get
+        {
+            object @object = ResourceManager.GetObject("nicknamez1", resourceCulture);
+            return (Bitmap)@object;
+        }
+    }
+
+    internal static Bitmap nicknamez2
+    {
+        get
+        {
+            object @object = ResourceManager.GetObject("nicknamez2", resourceCulture);
+            return (Bitmap)@object;
+        }
+    }
+
+    internal static Bitmap nicknamez3
+    {
+        get
+        {
+            object @object = ResourceManager.GetObject("nicknamez3", resourceCulture);
+            return (Bitmap)@object;
+        }
+    }
+
+    internal Resources()
 	{
 	}
 }

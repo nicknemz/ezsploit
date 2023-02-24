@@ -10,6 +10,7 @@ using FastColoredTextBoxNS;
 using Guna.UI2.WinForms;
 using KrnlAPI;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using WeAreDevs_API;
 
 namespace EzSploit_REBORN.UserControls;
 
@@ -18,6 +19,8 @@ public class uc_home : UserControl
 	private KrnlApi ezsploitkrnl = new KrnlApi();
 
 	private Module ezsploitex = new Module();
+
+    ExploitAPI ezsploitwrd= new ExploitAPI();
 
 	private IContainer components = null;
 
@@ -61,7 +64,12 @@ public class uc_home : UserControl
 			BackgroundImage = Resources._40_40_40;
 			fastColoredTextBox1.BackgroundImage = Resources.anime31;
 		}
-		listBox1.Items.Clear();
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "skullemoji")
+        {
+            BackgroundImage = Resources._40_40_40;
+            fastColoredTextBox1.BackgroundImage = Resources.nicknamez1;
+        }
+        listBox1.Items.Clear();
 		Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.txt");
 		Functions.PopulateListBox(listBox1, @"c:\mikusdevPrograms\ezsploit\Scripts", "*.lua");
         fastColoredTextBox1.Text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt");
@@ -113,6 +121,10 @@ public class uc_home : UserControl
             krnlfix_ krnlfix = new krnlfix_();
             DialogResult dialogResult = krnlfix.ShowDialog();
 		}
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt") == "WRD")
+        {
+            ezsploitwrd.LaunchExploit();
+        }
         File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 
@@ -126,6 +138,11 @@ public class uc_home : UserControl
 		{
 			ezsploitkrnl.Execute(fastColoredTextBox1.Text);
 		}
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt") == "WRD")
+        {
+            string wrdscript = fastColoredTextBox1.Text;
+            ezsploitwrd.SendLimitedLuaScript(wrdscript);
+        }
         File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt", fastColoredTextBox1.Text);
 	}
 

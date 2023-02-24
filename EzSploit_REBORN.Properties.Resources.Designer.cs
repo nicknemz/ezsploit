@@ -143,9 +143,9 @@ internal class EzSploit_REBORN_Properties_Resources {
     /// <summary>
     ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
     /// </summary>
-    internal static System.Drawing.Bitmap rbxico {
+    internal static System.Drawing.Bitmap nicknamez1 {
         get {
-            object obj = ResourceManager.GetObject("rbxico", resourceCulture);
+            object obj = ResourceManager.GetObject("nicknamez1", resourceCulture);
             return ((System.Drawing.Bitmap)(obj));
         }
     }
@@ -153,9 +153,19 @@ internal class EzSploit_REBORN_Properties_Resources {
     /// <summary>
     ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
     /// </summary>
-    internal static System.Drawing.Bitmap splash {
+    internal static System.Drawing.Bitmap nicknamez2 {
         get {
-            object obj = ResourceManager.GetObject("splash", resourceCulture);
+            object obj = ResourceManager.GetObject("nicknamez2", resourceCulture);
+            return ((System.Drawing.Bitmap)(obj));
+        }
+    }
+    
+    /// <summary>
+    ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+    /// </summary>
+    internal static System.Drawing.Bitmap nicknamez3 {
+        get {
+            object obj = ResourceManager.GetObject("nicknamez3", resourceCulture);
             return ((System.Drawing.Bitmap)(obj));
         }
     }

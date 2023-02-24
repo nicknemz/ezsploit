@@ -52,6 +52,13 @@ public class uc_options : UserControl
     private Label installedver;
     private Label newestver;
     private Guna2Button guna2Button3;
+    private Label label8;
+    private Guna2Button guna2Button5;
+    private Guna2Button guna2Button12;
+    private Guna2Button guna2Button13;
+    private Guna2Button guna2Button14;
+    private Guna2Button guna2Button15;
+    private Guna2Button guna2Button16;
     private Guna2Button guna2Button10;
 
 	public uc_options()
@@ -73,6 +80,10 @@ public class uc_options : UserControl
 		{
 			BackgroundImage = Resources.hentai2;
 		}
+        if (File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt") == "skullemoji")
+        {
+            BackgroundImage = Resources.nicknamez3;
+        }
         installedver.Text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\version.txt");
         newestver.Text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\versionew.txt");
     }
@@ -157,6 +168,13 @@ public class uc_options : UserControl
             this.installedver = new System.Windows.Forms.Label();
             this.newestver = new System.Windows.Forms.Label();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button12 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button13 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button14 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button15 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Button16 = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
@@ -442,12 +460,127 @@ public class uc_options : UserControl
             this.guna2Button3.Text = "Update EzSploit";
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(259, 174);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(69, 20);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Folders";
+            // 
+            // guna2Button5
+            // 
+            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button5.ForeColor = System.Drawing.Color.White;
+            this.guna2Button5.Location = new System.Drawing.Point(230, 201);
+            this.guna2Button5.Name = "guna2Button5";
+            this.guna2Button5.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button5.TabIndex = 24;
+            this.guna2Button5.Text = "Open EzSploit folder";
+            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click_1);
+            // 
+            // guna2Button12
+            // 
+            this.guna2Button12.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button12.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button12.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button12.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button12.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button12.ForeColor = System.Drawing.Color.White;
+            this.guna2Button12.Location = new System.Drawing.Point(230, 253);
+            this.guna2Button12.Name = "guna2Button12";
+            this.guna2Button12.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button12.TabIndex = 25;
+            this.guna2Button12.Text = "EasyEx. config folder";
+            this.guna2Button12.Click += new System.EventHandler(this.guna2Button12_Click);
+            // 
+            // guna2Button13
+            // 
+            this.guna2Button13.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button13.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button13.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button13.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button13.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button13.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button13.ForeColor = System.Drawing.Color.White;
+            this.guna2Button13.Location = new System.Drawing.Point(230, 305);
+            this.guna2Button13.Name = "guna2Button13";
+            this.guna2Button13.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button13.TabIndex = 26;
+            this.guna2Button13.Text = "KRNL config folder";
+            this.guna2Button13.Click += new System.EventHandler(this.guna2Button13_Click);
+            // 
+            // guna2Button14
+            // 
+            this.guna2Button14.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button14.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button14.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button14.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button14.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button14.ForeColor = System.Drawing.Color.White;
+            this.guna2Button14.Location = new System.Drawing.Point(427, 278);
+            this.guna2Button14.Name = "guna2Button14";
+            this.guna2Button14.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button14.TabIndex = 27;
+            this.guna2Button14.Text = "NEMZ#9718 (beta tester)";
+            this.guna2Button14.Click += new System.EventHandler(this.guna2Button14_Click);
+            // 
+            // guna2Button15
+            // 
+            this.guna2Button15.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button15.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button15.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button15.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button15.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button15.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button15.ForeColor = System.Drawing.Color.White;
+            this.guna2Button15.Location = new System.Drawing.Point(602, 174);
+            this.guna2Button15.Name = "guna2Button15";
+            this.guna2Button15.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button15.TabIndex = 28;
+            this.guna2Button15.Text = "WeAreDevs";
+            this.guna2Button15.Click += new System.EventHandler(this.guna2Button15_Click);
+            // 
+            // guna2Button16
+            // 
+            this.guna2Button16.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button16.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button16.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button16.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.guna2Button16.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button16.ForeColor = System.Drawing.Color.White;
+            this.guna2Button16.Location = new System.Drawing.Point(230, 356);
+            this.guna2Button16.Name = "guna2Button16";
+            this.guna2Button16.Size = new System.Drawing.Size(127, 46);
+            this.guna2Button16.TabIndex = 29;
+            this.guna2Button16.Text = "WRD config folder";
+            this.guna2Button16.Click += new System.EventHandler(this.guna2Button16_Click);
+            // 
             // uc_options
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.guna2Button16);
+            this.Controls.Add(this.guna2Button15);
+            this.Controls.Add(this.guna2Button14);
+            this.Controls.Add(this.guna2Button13);
+            this.Controls.Add(this.guna2Button12);
+            this.Controls.Add(this.guna2Button5);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.guna2Button3);
             this.Controls.Add(this.newestver);
             this.Controls.Add(this.installedver);
@@ -496,5 +629,39 @@ public class uc_options : UserControl
         Process.Start(@"c:\mikusdevPrograms\ezsploit\EzSploit Updater.exe");
         Thread.Sleep(50);
         Application.Exit();
+    }
+
+    private void guna2Button5_Click_1(object sender, EventArgs e)
+    {
+        System.Diagnostics.Process.Start("explorer.exe", @"c:\mikusdevPrograms\ezsploit");
+    }
+
+    private void guna2Button12_Click(object sender, EventArgs e)
+    {
+        System.Diagnostics.Process.Start("explorer.exe", @"c:\eeapi\workspace");
+    }
+
+    private void guna2Button13_Click(object sender, EventArgs e)
+    {
+        string filePath1212 = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+
+        System.Diagnostics.Process.Start("explorer.exe", filePath1212 + @"\Krnl\workspace");
+    }
+
+    private void guna2Button14_Click(object sender, EventArgs e)
+    {
+        BackgroundImage = Resources.nicknamez3;
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "skullemoji");
+    }
+
+    private void guna2Button15_Click(object sender, EventArgs e)
+    {
+        File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt", "WRD");
+    }
+
+    private void guna2Button16_Click(object sender, EventArgs e)
+    {
+        System.Diagnostics.Process.Start("explorer.exe", @"c:\mikusdevPrograms\workspace");
     }
 }

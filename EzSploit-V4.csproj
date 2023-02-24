@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <AssemblyName>EzSploit V3</AssemblyName>
     <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
@@ -17,6 +17,9 @@
     <RootNamespace />
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="DiscordRichPresence" Version="1.1.3.18" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="EasyExploits">
       <HintPath>..\..\..\Downloads\APIS\EasyExploits.dll</HintPath>
     </Reference>
@@ -28,6 +31,9 @@
     </Reference>
     <Reference Include="KrnlAPI">
       <HintPath>..\..\..\Downloads\APIS\KrnlAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="WeAreDevs_API">
+      <HintPath>..\..\..\Downloads\WeAreDevs_API.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -42,8 +48,5 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>EzSploit_REBORN.Properties.Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MdevD\" />
   </ItemGroup>
 </Project>
