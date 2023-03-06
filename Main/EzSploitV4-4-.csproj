@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>EzSploit V3</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net48</TargetFramework>
+    <Prefer32Bit>True</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>11.0</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>app.ico</ApplicationIcon>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Reference Include="FastColoredTextBox">
+      <HintPath>..\..\..\Downloads\FastColoredTextBox.dll</HintPath>
+    </Reference>
+    <Reference Include="KrnlAPI">
+      <HintPath>..\..\..\Downloads\KrnlAPI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Downloads\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="DiscordRPC">
+      <HintPath>..\..\..\Downloads\DiscordRPC.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyExploits">
+      <HintPath>..\..\..\Downloads\EasyExploits.dll</HintPath>
+    </Reference>
+    <Reference Include="WeAreDevs_API">
+      <HintPath>..\..\..\Downloads\WeAreDevs_API.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,13 @@
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\bin\Debug\EzSploit.exe.config
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\bin\Debug\EzSploit.exe
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\bin\Debug\EzSploit.pdb
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.csproj.AssemblyReference.cache
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.csproj.SuggestedBindingRedirects.cache
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.Form1.resources
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.Properties.Resources.resources
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.csproj.GenerateResource.cache
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.csproj.CoreCompileInputs.cache
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.exe
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.pdb
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\mdev\Documents\projects\EzSploit\EzSploit\obj\Debug\EzSploit.csproj.ResolveComReference.cache

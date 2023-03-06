@@ -1,0 +1,14 @@
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\bin\Debug\EzSploit Launcher.exe.config
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\bin\Debug\EzSploit Launcher.exe
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\bin\Debug\EzSploit Launcher.pdb
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.csproj.AssemblyReference.cache
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.csproj.SuggestedBindingRedirects.cache
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit_Launcher.updating.resources
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit_Launcher.Properties.Resources.resources
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.csproj.GenerateResource.cache
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.csproj.CoreCompileInputs.cache
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.exe
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.pdb
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit_Launcher.completed.resources
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\Interop.IWshRuntimeLibrary.dll
+C:\Users\mdev\Documents\projects\EzSploit Launcher\EzSploit Launcher\obj\Debug\EzSploit Launcher.csproj.ResolveComReference.cache
