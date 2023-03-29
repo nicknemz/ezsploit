@@ -15,7 +15,7 @@ Easy script saving and loading (working on deleting :p)
 
 -WeAreDevs (working)
 
--krnl (working without antivirus detection)
+-krnl (working)
 
 
 
