@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -19,8 +20,16 @@ namespace EzSploit
         public Form1()
         {
             InitializeComponent();
-
+            Thread.Sleep(2000);
+            Directory.Delete(@"c:\mikusdevPrograms\ezsploit\Configs", true);
+            Thread.Sleep(1000);
             DirectoryInfo di = Directory.CreateDirectory(@"c:\mikusdevPrograms\ezsploit");
+
+            using (var client = new WebClient())
+            {
+                Thread.Sleep(100);
+                client.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
+            }
         }
         string destkop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
@@ -58,6 +67,8 @@ namespace EzSploit
         {
             using (var client = new WebClient())
             {
+                
+                Thread.Sleep(100);
                 client.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
             }
         }
@@ -85,7 +96,12 @@ namespace EzSploit
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            using (var client1 = new WebClient())
+            {
+                client1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
+                Thread.Sleep(100);
+                Application.Exit();
+            }
         }
     }
 }

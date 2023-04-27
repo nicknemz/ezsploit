@@ -18,6 +18,12 @@ namespace EzSploit_Launcher
     public partial class updating : Form
     {
 
+        string textboxtext;
+        string selectedapi;
+        string selectedtheme;
+        string autoinj;
+
+        WebClient webClient = new WebClient();
         public void wait(int milliseconds)
         {
             var timer1 = new System.Windows.Forms.Timer();
@@ -50,20 +56,15 @@ namespace EzSploit_Launcher
             string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             if (Directory.Exists(configsfolder))
             {
-                WebClient webClient1 = new WebClient();
-                webClient1.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
+                webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
 
                 
 
                 return;
             }
             DirectoryInfo di = Directory.CreateDirectory(@"c:\mikusdevPrograms\ezsploit");
-            WebClient webClient = new WebClient();
-            webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
-
             
-
-
+            webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/EzSploitV4.exe", @"c:\mikusdevPrograms\ezsploit\EzSploitV4.exe");
         }
         
 
@@ -76,6 +77,24 @@ namespace EzSploit_Launcher
             wait(500);
             System.IO.File.Move(@"c:\mikusdevPrograms\ezsploit\versionew.txt", @"c:\mikusdevPrograms\ezsploit\version.txt");
             wait(500);
+            DirectoryInfo di1 = Directory.CreateDirectory(@"c:\mikusdevPrograms\ezsploit\updatetemp");
+
+            textboxtext = System.IO.File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\textboxconf.txt");
+            selectedapi = System.IO.File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedAPI.txt");
+            selectedtheme = System.IO.File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt");
+            autoinj = System.IO.File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\Configs\autoinject.txt");
+
+            using (FileStream fs = System.IO.File.Create(@"c:\mikusdevPrograms\ezsploit\updatetemp\textboxconf.txt"))
+            using (FileStream fs2 = System.IO.File.Create(@"c:\mikusdevPrograms\ezsploit\updatetemp\selectedAPI.txt"))
+            using (FileStream fs3 = System.IO.File.Create(@"c:\mikusdevPrograms\ezsploit\updatetemp\selectedTheme.txt"))
+            using (FileStream fs4 = System.IO.File.Create(@"c:\mikusdevPrograms\ezsploit\updatetemp\autoinject.txt"))
+            wait(100);
+            System.IO.File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\textboxconf.txt", textboxtext);
+            System.IO.File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\selectedAPI.txt", selectedapi);
+            System.IO.File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\selectedTheme.txt", selectedtheme);
+            System.IO.File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\autoinject.txt", autoinj);
+
+
             Directory.Delete(@"c:\mikusdevPrograms\ezsploit\Configs", true);
             wait(200);
             completed f2 = new completed();
