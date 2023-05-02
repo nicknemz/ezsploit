@@ -1,22 +1,20 @@
-# ezsploit
-source code of my roblox exploit 
+# ezSploit
+Source code of my Roblox exploit 
 
-# about
-Roblox executor with themes and 3 API's support.
+## About
+Roblox executor with themes and 3 APIs support.
 
-Auto updates and 1 click install without administrator privileges!
+Auto updates and one click install without Administrator privileges!
 
 Easy script saving and loading (working on deleting :p)
 
+### Supported APIs and status
 
-# supported API's and status
+- Easyexploits (working)
 
--easyexploits (working)
+- WeAreDevs (working)
 
--WeAreDevs (working)
-
--krnl (working without antivirus detection)
-
+- Krnl (working without antivirus detection)
 
 
-oh and you can check for update date here: mikusgszyp/ezsploitfiledownloader
+Check for update dates here: [ezSploitfiledownloader](https://github.com/mikusgszyp/ezsploitfiledownloader)
