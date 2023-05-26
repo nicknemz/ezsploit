@@ -7,14 +7,16 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using DiscordRPC;
 using EasyExploits;
 using EzSploit.Properties;
 using KrnlAPI;
-using Oxygen;
 using WeAreDevs_API;
 
 namespace EzSploit.usercontrols
@@ -31,6 +33,15 @@ namespace EzSploit.usercontrols
         WebClient webClient = new WebClient();
 
         string internalui = "loadstring(game:HttpGet(\"https://raw.githubusercontent.com/nicknemz/internalufd/main/EzSploitINT.lua\", true))()";
+
+        [DllImport("oxygen_injector.dll", CallingConvention = CallingConvention.StdCall)]
+        private static extern int inject_dll();
+
+        [DllImport("oxygen_injector.dll", CallingConvention = CallingConvention.StdCall)]
+        private static extern int run_script(string script);
+
+        [DllImport("oxygen_injector.dll", CallingConvention = CallingConvention.StdCall)]
+        private static extern int set_obs(bool setting);
         public uc_options()
         {
             InitializeComponent();
@@ -41,6 +52,23 @@ namespace EzSploit.usercontrols
             } else if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedTheme.txt") == "skull_emoji")
             {
                 BackgroundImage = Resources.options;
+            }
+
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "WRD")
+            {
+                guna2Button6.CustomBorderColor = Color.White;
+            } 
+            else if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "EasyExploits")
+            {
+                guna2Button7.CustomBorderColor = Color.White;
+            }
+            else if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Krnl")
+            {
+                guna2Button8.CustomBorderColor = Color.White;
+            }
+            else if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Oxygen")
+            {
+                guna2Button11.CustomBorderColor = Color.White;
             }
         }
 
@@ -67,6 +95,11 @@ namespace EzSploit.usercontrols
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             ezsploitex.killRoblox();
+            Process[] processesByName = Process.GetProcessesByName("Windows10Universal");
+            for (int i = 0; i < processesByName.Length; i++)
+            {
+                processesByName[i].Kill();
+            }
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
@@ -94,16 +127,28 @@ namespace EzSploit.usercontrols
         private void guna2Button6_Click(object sender, EventArgs e)
         {
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "WRD");
+            guna2Button6.CustomBorderColor = Color.White;
+            guna2Button7.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button8.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button11.CustomBorderColor = Color.FromArgb(30, 30, 30);
         }
 
         private void guna2Button7_Click(object sender, EventArgs e)
         {
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "EasyExploits");
+            guna2Button6.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button7.CustomBorderColor = Color.White;
+            guna2Button8.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button11.CustomBorderColor = Color.FromArgb(30, 30, 30);
         }
 
         private void guna2Button8_Click(object sender, EventArgs e)
         {
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Krnl");
+            guna2Button6.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button7.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button8.CustomBorderColor = Color.White;
+            guna2Button11.CustomBorderColor = Color.FromArgb(30, 30, 30);
         }
 
         private void uc_options_Load(object sender, EventArgs e)
@@ -117,6 +162,7 @@ namespace EzSploit.usercontrols
             {
                 autoinjbutton.ForeColor = System.Drawing.Color.Red;
             }
+            
         }
 
         private void guna2Button9_Click(object sender, EventArgs e)
@@ -178,13 +224,17 @@ namespace EzSploit.usercontrols
             }
             if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Oxygen")
             {
-                Execution.Execute(internalui);
+                run_script(internalui);
             }
         }
 
         private void guna2Button11_Click(object sender, EventArgs e)
         {
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Oxygen");
+            guna2Button6.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button7.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button8.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button11.CustomBorderColor = Color.White;
         }
 
         private void guna2Button17_Click(object sender, EventArgs e)
@@ -198,7 +248,7 @@ namespace EzSploit.usercontrols
 
         private void guna2Button19_Click(object sender, EventArgs e)
         {
-            var message = "KRNL key bypass will take 1 minute, just look on EzSploit Console and wait for 'bypass stopped' line to show, then key should appear on your web browser. Do you want to start bypassing?";
+            var message = "KRNL key bypass will take about 1 minute, just do captcha and click continue on KRNL.place websites, but if you are on linkversite then click yes on next notifications. Do you want to start?";
             var title = "EzSploit notification";
             var result = MessageBox.Show(
                 message,
@@ -211,27 +261,80 @@ namespace EzSploit.usercontrols
                 case DialogResult.Yes:
                     Console.WriteLine("Starting bypass! Dont do anything in ezsploit, it can now easily crash");
                     System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey");
-                    Console.WriteLine("]Bypassing step 1");
-                    Thread.Sleep(1000);
-                    System.Diagnostics.Process.Start("https://link-to.net/48193/krnlc4");
-                    Thread.Sleep(16000);
-                    System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey_games");
-                    Console.WriteLine("]Bypassing step 2");
-                    Thread.Sleep(1000);
-                    System.Diagnostics.Process.Start("https://direct-link.net/48193/krnlkey");
-                    Thread.Sleep(16000);
-                    System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey_interface");
-                    Console.WriteLine("]Bypassing step 3");
-                    Thread.Sleep(1000);
-                    System.Diagnostics.Process.Start("https://direct-link.net/48193/thekrnlkey");
-                    Thread.Sleep(16000);
-                    System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey_scripts");
-                    Console.WriteLine("]Bypassing step 4");
-                    Thread.Sleep(1000);
-                    System.Diagnostics.Process.Start("https://link-to.net/48193/krnlc3");
-                    Thread.Sleep(16000);
-                    System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey.php");
-                    Console.WriteLine("Bypass stopped");
+                    var message1 = "Click 'yes' if you are on first linkversite";
+                    var title1 = "EzSploit notification";
+                    var result1 = MessageBox.Show(
+                        message1,
+                        title1,
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question);
+
+                    switch (result1)
+                    {
+                        case DialogResult.Yes:
+                            Console.WriteLine("]Bypassing step 1, wait for next checkpoint");
+                            wait(16000);
+                            System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey_games");
+                            var message2 = "Click 'yes' if you are on second linkversite";
+                            var title2 = "EzSploit notification";
+                            var result2 = MessageBox.Show(
+                                message,
+                                title,
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question);
+
+                            switch (result2)
+                            {
+                                case DialogResult.Yes:
+                                    Console.WriteLine("]Bypassing step 2, wait for next checkpoint");
+                                    wait(16000);
+                                    System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey_interface");
+                                    var message3 = "Click 'yes' if you are on third linkversite";
+                                    var title3 = "EzSploit notification";
+                                    var result3 = MessageBox.Show(
+                                        message3,
+                                        title3,
+                                        MessageBoxButtons.YesNo,
+                                        MessageBoxIcon.Question);
+
+                                    switch (result3)
+                                    {
+                                        case DialogResult.Yes:
+                                            Console.WriteLine("]Bypassing step 3, wait for next checkpoint");
+                                            wait(16000);
+                                            System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey_scripts");
+                                            var message4 = "Click 'yes' if you are on fourth linkversite";
+                                            var title4 = "EzSploit notification";
+                                            var result4 = MessageBox.Show(
+                                                message4,
+                                                title4,
+                                                MessageBoxButtons.YesNo,
+                                                MessageBoxIcon.Question);
+
+                                            switch (result4)
+                                            {
+                                                case DialogResult.Yes:
+                                                    Console.WriteLine("]Bypassing step 4, wait for next checkpoint");
+                                                    wait(16000);
+                                                    System.Diagnostics.Process.Start("https://cdn.krnl.place/getkey.php");
+                                                    Console.WriteLine("Bypass stopped");
+                                                    break;
+                                                case DialogResult.No:
+                                                    break;
+                                            }
+                                            break;
+                                        case DialogResult.No:
+                                            break;
+                                    }
+
+                                    break;
+                                case DialogResult.No:
+                                    break;
+                            }
+                            break;
+                        case DialogResult.No:
+                            break;
+                    }
                     break;
                 case DialogResult.No:
                     break;
@@ -269,6 +372,50 @@ namespace EzSploit.usercontrols
         {
             File.WriteAllText(@"c:\mikusdevPrograms\ezsploit\Configs\selectedTheme.txt", "skull_emoji");
             BackgroundImage = Resources.options;
+        }
+
+        private void guna2Button22_Click(object sender, EventArgs e)
+        {
+            var message = "Fix Update will fix missing error files, but it will delete: ScriptTabs, configs. Your saved scripts will be preserved. I reccomend you to hit 'ReDownload' button after this action.";
+            var title = "EzSploit notification";
+            var result = MessageBox.Show(
+                message,
+                title,
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    Directory.Delete(@"c:\mikusdevPrograms\ezsploit\Configs", true);
+                    if (Directory.Exists(@"c:\mikusdevPrograms\ezsploit\updatetemp"))
+                    {
+                        Directory.Delete(@"c:\mikusdevPrograms\ezsploit\updatetemp", true);
+                    }
+                    wait(500);
+                    Application.Exit();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+
+        private void guna2Button23_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "selery");
+            guna2Button6.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button7.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button8.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button11.CustomBorderColor = Color.FromArgb(30, 30, 30);
+        }
+
+        private void guna2Button23_Click_1(object sender, EventArgs e)
+        {
+            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "selery");
+            guna2Button6.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button7.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button8.CustomBorderColor = Color.FromArgb(30, 30, 30);
+            guna2Button11.CustomBorderColor = Color.FromArgb(30, 30, 30);
         }
     }
 }

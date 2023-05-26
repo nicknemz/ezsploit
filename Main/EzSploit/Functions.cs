@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EzSploit.usercontrols;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace EzSploit
 {
     internal class Functions
     {
+
+        
         public static void PopulateListBox(ListBox lsb, string Folder, string FileType)
         {
             FileInfo[] files = new DirectoryInfo(Folder).GetFiles(FileType);
@@ -18,5 +21,7 @@ namespace EzSploit
                 lsb.Items.Add(fileInfo.Name);
             }
         }
+
+        
     }
 }

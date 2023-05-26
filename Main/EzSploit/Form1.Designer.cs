@@ -36,12 +36,11 @@
             this.guna2GradientCircleButton2 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.guna2GradientCircleButton1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.UC_WINDOW = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -92,7 +91,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(136, 18);
             this.label1.TabIndex = 2;
-            this.label1.Text = "EzSploit - V 5.3";
+            this.label1.Text = "EzSploit - V 5.5";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // guna2GradientCircleButton2
             // 
@@ -137,14 +137,35 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.panel2.Controls.Add(this.guna2Button5);
             this.panel2.Controls.Add(this.guna2Button3);
             this.panel2.Controls.Add(this.guna2Button2);
             this.panel2.Controls.Add(this.guna2Button1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(0, 32);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(50, 418);
+            this.panel2.Size = new System.Drawing.Size(50, 439);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // guna2Button5
+            // 
+            this.guna2Button5.Animated = true;
+            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button5.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button5.ForeColor = System.Drawing.Color.White;
+            this.guna2Button5.Image = global::EzSploit.Properties.Resources._13973;
+            this.guna2Button5.ImageOffset = new System.Drawing.Point(1, 0);
+            this.guna2Button5.ImageSize = new System.Drawing.Size(38, 38);
+            this.guna2Button5.Location = new System.Drawing.Point(6, 138);
+            this.guna2Button5.Name = "guna2Button5";
+            this.guna2Button5.Size = new System.Drawing.Size(39, 38);
+            this.guna2Button5.TabIndex = 7;
+            this.guna2Button5.Click += new System.EventHandler(this.guna2Button5_Click);
             // 
             // guna2Button3
             // 
@@ -202,39 +223,14 @@
             // 
             // UC_WINDOW
             // 
-            this.UC_WINDOW.BackColor = System.Drawing.Color.Black;
-            this.UC_WINDOW.Controls.Add(this.label4);
-            this.UC_WINDOW.Controls.Add(this.label3);
+            this.UC_WINDOW.BackColor = System.Drawing.Color.Transparent;
+            this.UC_WINDOW.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.UC_WINDOW.Controls.Add(this.label2);
             this.UC_WINDOW.Location = new System.Drawing.Point(50, 32);
             this.UC_WINDOW.Name = "UC_WINDOW";
-            this.UC_WINDOW.Size = new System.Drawing.Size(740, 408);
+            this.UC_WINDOW.Size = new System.Drawing.Size(740, 429);
             this.UC_WINDOW.TabIndex = 2;
             this.UC_WINDOW.Paint += new System.Windows.Forms.PaintEventHandler(this.UC_WINDOW_Paint);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(398, 3);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(336, 51);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "if you are getting error when entering script tab, just\r\nclick \"continue\". This e" +
-    "rror is propably because of\r\nByfron bypass and it does\'nt do anything";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(8, 316);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(510, 63);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "mikustodown#2945 (aka. mikusdev) - creator and main developer\r\n\r\nnicknamez#9718 -" +
-    " helper and beta tester, internal UI maker";
             // 
             // label2
             // 
@@ -243,10 +239,11 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(7, 7);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(307, 300);
+            this.label2.Size = new System.Drawing.Size(316, 360);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Thank you for using EzSploit!\r\n\r\nSelect tab and start exploiting.\r\n\r\n\r\n\r\n\r\n\r\n\r\nCr" +
-    "edits:";
+            this.label2.Text = "Thank you for using EzSploit! \r\n\r\n\r\nSelect tab and start exploiting.\r\n\r\n\r\n\r\n\r\n\r\nC" +
+    "redits:\r\nmikustodown#2945 - main DEV\r\nnicknamez#9718 - Helper";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel3
             // 
@@ -254,14 +251,14 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel3.Location = new System.Drawing.Point(790, 32);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(10, 418);
+            this.panel3.Size = new System.Drawing.Size(10, 439);
             this.panel3.TabIndex = 3;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(50, 440);
+            this.panel4.Location = new System.Drawing.Point(50, 461);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(740, 10);
             this.panel4.TabIndex = 4;
@@ -277,7 +274,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 471);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.UC_WINDOW);
@@ -306,15 +303,14 @@
         private Guna.UI2.WinForms.Guna2GradientCircleButton guna2GradientCircleButton1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel4;
+        private Guna.UI2.WinForms.Guna2Button guna2Button5;
     }
 }
 

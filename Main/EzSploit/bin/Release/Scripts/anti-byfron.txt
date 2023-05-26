@@ -1,0 +1,4 @@
+press CTRL+SHIFT+i on a game you want to hack on, then go to the console tab and paste this exact string.
+ 
+ 
+Roblox.ProtocolHandlerClientInterface.playerChannel = '';

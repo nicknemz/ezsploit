@@ -43,6 +43,10 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.linkLabel5 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel6 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label9
@@ -65,10 +69,11 @@
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label8.Location = new System.Drawing.Point(506, 239);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(189, 64);
+            this.label8.Size = new System.Drawing.Size(200, 80);
             this.label8.TabIndex = 29;
-            this.label8.Text = "EzSploit auto updates are now\r\nin BETA! Sometimes you need\r\nto launch EzSploit 2 " +
-    "times after\r\nupdate";
+            this.label8.Text = "EzSploit updates is now stable,\r\nExecutor is auto-updating, but\r\nif something is " +
+    "wrong you always\r\ncan hit \"redownload\" or \"Fix \r\nUpdate\" button is settings";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -90,10 +95,10 @@
             this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label6.Location = new System.Drawing.Point(491, 82);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(234, 64);
+            this.label6.Size = new System.Drawing.Size(217, 48);
             this.label6.TabIndex = 27;
-            this.label6.Text = "Try another API (change in settings)\r\nor update api\'s via websites linked\r\nbelow." +
-    " Just download API and replace\r\nold file to new.";
+            this.label6.Text = "Try another API (change in settings)\r\nor wait for API update. KRNL have \r\nmost of" +
+    "ten updates";
             // 
             // label5
             // 
@@ -173,40 +178,43 @@
             // 
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel3.Location = new System.Drawing.Point(561, 393);
+            this.linkLabel3.Location = new System.Drawing.Point(561, 416);
             this.linkLabel3.Name = "linkLabel3";
             this.linkLabel3.Size = new System.Drawing.Size(65, 13);
             this.linkLabel3.TabIndex = 35;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "WeAreDevs";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Location = new System.Drawing.Point(704, 393);
+            this.linkLabel1.Location = new System.Drawing.Point(704, 416);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(36, 13);
             this.linkLabel1.TabIndex = 34;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "KRNL";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel2.Location = new System.Drawing.Point(632, 393);
+            this.linkLabel2.Location = new System.Drawing.Point(632, 416);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(66, 13);
             this.linkLabel2.TabIndex = 33;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "EasyExploits";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // linkLabel4
             // 
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel4.Location = new System.Drawing.Point(3, 393);
+            this.linkLabel4.Location = new System.Drawing.Point(4, 416);
             this.linkLabel4.Name = "linkLabel4";
             this.linkLabel4.Size = new System.Drawing.Size(122, 13);
             this.linkLabel4.TabIndex = 32;
@@ -214,12 +222,65 @@
             this.linkLabel4.Text = "Official EzSploit Website";
             this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Transparent;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkOrange;
+            this.label11.Location = new System.Drawing.Point(283, 279);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(109, 24);
+            this.label11.TabIndex = 36;
+            this.label11.Text = "Byfron info";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.BackColor = System.Drawing.Color.Transparent;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(228, 314);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(212, 80);
+            this.label12.TabIndex = 37;
+            this.label12.Text = "Byfron is new roblox anti-cheat and\r\nit scans your pc for exploits. After \r\nroblo" +
+    "x update I reccomend to use\r\nAPI\'s like KRNL, because they are\r\nless detectable";
+            // 
+            // linkLabel5
+            // 
+            this.linkLabel5.AutoSize = true;
+            this.linkLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel5.Location = new System.Drawing.Point(504, 416);
+            this.linkLabel5.Name = "linkLabel5";
+            this.linkLabel5.Size = new System.Drawing.Size(51, 13);
+            this.linkLabel5.TabIndex = 38;
+            this.linkLabel5.TabStop = true;
+            this.linkLabel5.Text = "OxygenU";
+            this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
+            // 
+            // linkLabel6
+            // 
+            this.linkLabel6.AutoSize = true;
+            this.linkLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.linkLabel6.Location = new System.Drawing.Point(132, 416);
+            this.linkLabel6.Name = "linkLabel6";
+            this.linkLabel6.Size = new System.Drawing.Size(119, 13);
+            this.linkLabel6.TabIndex = 39;
+            this.linkLabel6.TabStop = true;
+            this.linkLabel6.Text = "Official EzSploit Discord";
+            this.linkLabel6.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel6_LinkClicked);
+            // 
             // uc_info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.Controls.Add(this.linkLabel6);
+            this.Controls.Add(this.linkLabel5);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.linkLabel2);
@@ -235,7 +296,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "uc_info";
-            this.Size = new System.Drawing.Size(740, 408);
+            this.Size = new System.Drawing.Size(740, 429);
             this.Load += new System.EventHandler(this.uc_info_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -258,5 +319,9 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel linkLabel2;
         private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.LinkLabel linkLabel5;
+        private System.Windows.Forms.LinkLabel linkLabel6;
     }
 }
