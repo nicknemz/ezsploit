@@ -2,9 +2,11 @@
 using DiscordRPC;
 using DiscordRPC.Logging;
 using DiscordRPC.Message;
+using IWshRuntimeLibrary;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -31,6 +33,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using static System.Net.Mime.MediaTypeNames;
 using MessageBox = System.Windows.Forms.MessageBox;
+using Path = System.IO.Path;
 
 namespace ezsploitv
 {
@@ -48,7 +51,7 @@ namespace ezsploitv
             HomeBorder.Visibility = Visibility.Hidden;
             options.Visibility = Visibility.Hidden;
             notifyBorder.Visibility = Visibility.Hidden;
-            notifyBorder2.Visibility = Visibility.Hidden;
+            consoleborder.Visibility = Visibility.Hidden;
             listbox1.Items.Clear();
             Functions.PopulateListBox(listbox1, "c:\\mikusdevPrograms\\ezsploit\\Scripts", "*.txt");
             Functions.PopulateListBox(listbox1, "c:\\mikusdevPrograms\\ezsploit\\Scripts", " *.lua");
@@ -57,6 +60,15 @@ namespace ezsploitv
             {
                 webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/monaco-editor.zip", "c:\\mikusdevPrograms\\ezsploit\\monaco-editor.zip");
                 ZipFile.ExtractToDirectory("c:\\mikusdevPrograms\\ezsploit\\monaco-editor.zip", "c:\\mikusdevPrograms\\ezsploit");
+            }
+
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
+            {
+
+            }
+            else
+            {
+                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Comet");
             }
         }
 
@@ -151,13 +163,14 @@ namespace ezsploitv
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
             this.Fade(this.MainBorder);
-            ObjectShiftPos(MainBorder, MainBorder.Margin, new Thickness(0));
+            ObjectShiftPos(MainBorder, MainBorder.Margin, new Thickness(0, 0, 0, 124));
             await Task.Delay(2000);
-            ObjectShiftPos(MainBorder, MainBorder.Margin, new Thickness(0,0,-300,0));
+            ObjectShiftPos(MainBorder, MainBorder.Margin, new Thickness(0,0,-300, 124));
             this.FadeOut(this.MainBorder);
             HomeBorder.Visibility = Visibility.Visible;
             await Task.Delay(1000);
             MainBorder.Visibility = Visibility.Hidden;
+            
         }
 
         public void SetText(string text)
@@ -307,19 +320,21 @@ namespace ezsploitv
         {
             LogConsole("Trying Execute...");
             sendnotify("Trying Execute...");
-            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Oxygen")
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
             {
                 new DLLInterfacing().Execute(GetText());
             }
             savetext();
         }
-
+        
         private async void Close_Click(object sender, RoutedEventArgs e)
         {
             savetext();
             MonacoEditor.Visibility = Visibility.Hidden;
             this.FadeOut(MainGrid);
             await Task.Delay(500);
+            Process[] procs = Process.GetProcessesByName("ezsploitv");
+            foreach (Process p in procs) { p.Kill(); }
             Close();
         }
 
@@ -348,12 +363,87 @@ namespace ezsploitv
             options.Visibility = Visibility.Visible;
         }
 
+        public void selectedtabcol()
+        {
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "1")
+            {
+                script1.Background = System.Windows.Media.Brushes.Gray;
+                script2.Background = System.Windows.Media.Brushes.Black;
+                script3.Background = System.Windows.Media.Brushes.Black;
+                script4.Background = System.Windows.Media.Brushes.Black;
+                script5.Background = System.Windows.Media.Brushes.Black;
+                script6.Background = System.Windows.Media.Brushes.Black;
+                script7.Background = System.Windows.Media.Brushes.Black;
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "2")
+            {
+                script2.Background = System.Windows.Media.Brushes.Gray;
+                script1.Background = System.Windows.Media.Brushes.Black;
+                script3.Background = System.Windows.Media.Brushes.Black;
+                script4.Background = System.Windows.Media.Brushes.Black;
+                script5.Background = System.Windows.Media.Brushes.Black;
+                script6.Background = System.Windows.Media.Brushes.Black;
+                script7.Background = System.Windows.Media.Brushes.Black;
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "3")
+            {
+                script3.Background = System.Windows.Media.Brushes.Gray;
+                script2.Background = System.Windows.Media.Brushes.Black;
+                script1.Background = System.Windows.Media.Brushes.Black;
+                script4.Background = System.Windows.Media.Brushes.Black;
+                script5.Background = System.Windows.Media.Brushes.Black;
+                script6.Background = System.Windows.Media.Brushes.Black;
+                script7.Background = System.Windows.Media.Brushes.Black;
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "4")
+            {
+                script4.Background = System.Windows.Media.Brushes.Gray;
+                script2.Background = System.Windows.Media.Brushes.Black;
+                script3.Background = System.Windows.Media.Brushes.Black;
+                script1.Background = System.Windows.Media.Brushes.Black;
+                script5.Background = System.Windows.Media.Brushes.Black;
+                script6.Background = System.Windows.Media.Brushes.Black;
+                script7.Background = System.Windows.Media.Brushes.Black;
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "5")
+            {
+                script5.Background = System.Windows.Media.Brushes.Gray;
+                script2.Background = System.Windows.Media.Brushes.Black;
+                script3.Background = System.Windows.Media.Brushes.Black;
+                script4.Background = System.Windows.Media.Brushes.Black;
+                script1.Background = System.Windows.Media.Brushes.Black;
+                script6.Background = System.Windows.Media.Brushes.Black;
+                script7.Background = System.Windows.Media.Brushes.Black;
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "6")
+            {
+                script6.Background = System.Windows.Media.Brushes.Gray;
+                script2.Background = System.Windows.Media.Brushes.Black;
+                script3.Background = System.Windows.Media.Brushes.Black;
+                script4.Background = System.Windows.Media.Brushes.Black;
+                script5.Background = System.Windows.Media.Brushes.Black;
+                script1.Background = System.Windows.Media.Brushes.Black;
+                script7.Background = System.Windows.Media.Brushes.Black;
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt") == "7")
+            {
+                script7.Background = System.Windows.Media.Brushes.Gray;
+                script2.Background = System.Windows.Media.Brushes.Black;
+                script3.Background = System.Windows.Media.Brushes.Black;
+                script4.Background = System.Windows.Media.Brushes.Black;
+                script5.Background = System.Windows.Media.Brushes.Black;
+                script6.Background = System.Windows.Media.Brushes.Black;
+                script1.Background = System.Windows.Media.Brushes.Black;
+            }
+        }
+
         private void script1_Click(object sender, RoutedEventArgs e)
         {
             savetext();
             
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "1");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script1text.txt"));
+            selectedtabcol();
         }
 
         private void script2_Click(object sender, RoutedEventArgs e)
@@ -362,6 +452,7 @@ namespace ezsploitv
 
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "2");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script2text.txt"));
+            selectedtabcol();
         }
 
         private void script3_Click(object sender, RoutedEventArgs e)
@@ -370,6 +461,7 @@ namespace ezsploitv
 
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "3");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script3text.txt"));
+            selectedtabcol();
         }
 
         private void script4_Click(object sender, RoutedEventArgs e)
@@ -378,6 +470,7 @@ namespace ezsploitv
 
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "4");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script4text.txt"));
+            selectedtabcol();
         }
 
         private void script5_Click(object sender, RoutedEventArgs e)
@@ -386,6 +479,7 @@ namespace ezsploitv
 
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "5");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script5text.txt"));
+            selectedtabcol();
         }
 
         private void script6_Click(object sender, RoutedEventArgs e)
@@ -394,6 +488,7 @@ namespace ezsploitv
 
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "6");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script6text.txt"));
+            selectedtabcol();
         }
 
         private void script7_Click(object sender, RoutedEventArgs e)
@@ -402,6 +497,7 @@ namespace ezsploitv
 
             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", "7");
             SetText(File.ReadAllText($"c:/mikusdevPrograms/ezsploit/Configs/script7text.txt"));
+            selectedtabcol();
         }
 
         private void addtab_Click(object sender, RoutedEventArgs e)
@@ -463,13 +559,14 @@ namespace ezsploitv
                                 }
                                 else
                                 {
-                                    System.Windows.MessageBox.Show("max amount of script tabs is 7");
+                                    sendnotify("max amount of script tabs is 7");
                                 }
                             }
                         }
                     }
                 }
             }
+            selectedtabcol();
         }
 
         private void remtab_Click(object sender, RoutedEventArgs e)
@@ -552,13 +649,14 @@ namespace ezsploitv
                                 }
                                 else
                                 {
-                                    System.Windows.MessageBox.Show("You can't delete script1");
+                                    sendnotify("You can't delete script1");
                                 }
                             }
                         }
                     }
                 }
             }
+            selectedtabcol();
         }
 
         public async void sendnotify(string not)
@@ -567,9 +665,11 @@ namespace ezsploitv
             {
                 notifytext.Content = not;
                 notifyBorder.Visibility = Visibility.Visible;
+                ObjectShiftPos(notifyBorder, notifyBorder.Margin, new Thickness(193, -2, 193, 404));
                 Fade(notifyBorder);
                 await Task.Delay(1500);
                 FadeOut(notifyBorder);
+                ObjectShiftPos(notifyBorder, notifyBorder.Margin, new Thickness(193, -48, 193, 450));
                 await Task.Delay(500);
                 notifyBorder.Visibility = Visibility.Hidden;
             }
@@ -583,19 +683,19 @@ namespace ezsploitv
         {
             try
             {
-                ((WebView2)MonacoConsole).CoreWebView2.ExecuteScriptAsync("SetText(\"" + HttpUtility.JavaScriptStringEncode(GetConsoleText()) + HttpUtility.JavaScriptStringEncode("\r\n") + HttpUtility.JavaScriptStringEncode(sex) + "\")");
+                MonacoConsole.Text = MonacoConsole.Text + "\r\n" +sex;
             }
             catch (Exception)
             {
                 try
                 {
-                    ((WebView2)MonacoConsole).CoreWebView2.ExecuteScriptAsync("SetText(\"" + HttpUtility.JavaScriptStringEncode(GetConsoleText()) + HttpUtility.JavaScriptStringEncode("\r\n") + HttpUtility.JavaScriptStringEncode(sex) + "\")");
+                    MonacoConsole.Text = MonacoConsole.Text + "\r\n" + sex;
                 }
                 catch (Exception)
                 {
                     try
                     {
-                        ((WebView2)MonacoConsole).CoreWebView2.ExecuteScriptAsync("SetText(\"" + HttpUtility.JavaScriptStringEncode(GetConsoleText()) + HttpUtility.JavaScriptStringEncode("\r\n") + HttpUtility.JavaScriptStringEncode(sex) + "\")");
+                        MonacoConsole.Text = MonacoConsole.Text + "\r\n" + sex;
                     }
                     catch (Exception)
                     {
@@ -605,22 +705,9 @@ namespace ezsploitv
             }
         }
 
-        public string zabijsieoki2;
-        public string GetConsoleText()
-        {
-
-            ((WebView2)MonacoConsole).CoreWebView2.WebMessageReceived += delegate (object __1, CoreWebView2WebMessageReceivedEventArgs argsy)
-            {
-                zabijsieoki2 = argsy.TryGetWebMessageAsString();
-            };
-            return zabijsieoki2;
-        }
-
         private async void Grid1_Loaded(object sender1, RoutedEventArgs e1)
         {
-            
             await Task.Delay(1800);
-            MonacoEditor.Visibility = Visibility.Hidden;
             client = new DiscordRpcClient("1078735530654707772");
             client.Logger = new ConsoleLogger
             {
@@ -724,40 +811,59 @@ namespace ezsploitv
                 script6.Visibility = Visibility.Hidden;
                 script7.Visibility = Visibility.Hidden;
             }
+            selectedtabcol();
 
-            
             readtext();
             savetext();
 
+            await Task.Delay(50);
+            LogConsole("Selected API: " + File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt"));
+            await Task.Delay(50);
+            LogConsole("version - 6.3");
+            await Task.Delay(50);
+            LogConsole("developed by - mikusdev");
+            await Task.Delay(50);
+            LogConsole("helper (bro helped me mentally) - nicknamez");
+            await Task.Delay(1000);
+            sendnotify("EzSploit Loaded!");
+            await Task.Delay(4000);
+            savetext();
             if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
             {
                 LogConsole("Auto-Inject: enabled");
-                ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
-
-                processWatcher.Created += async (sender, proc) =>
+                try
                 {
-                    Process RobloxProcess = proc;
+                    sendnotify("Checking Comet key");
+                }
+                catch (Exception)
+                {
+
+                }
+                if (Verify(HWID()))
+                {
                     
-                    await Task.Delay(4000);
-                    injectezsploit();
-                };
+                    ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
+
+                    processWatcher.Created += async (sender, proc) =>
+                    {
+                        Process RobloxProcess = proc;
+
+                        await Task.Delay(4000);
+                        injectezsploit();
+                    };
+                }
+                else
+                {
+                    keysystem f3 = new keysystem();
+                    f3.Show();
+                }
+                
             }
             else
             {
                 LogConsole("Auto-Inject: disabled");
             }
-            await Task.Delay(50);
-            LogConsole("Selected API: " + File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt"));
-            await Task.Delay(50);
-            LogConsole("Welcome to EzSploit!");
-            await Task.Delay(50);
-            LogConsole("version - 6.2");
-            await Task.Delay(50);
-            LogConsole("developed by - mikusdev");
-            await Task.Delay(1000);
-            MonacoEditor.Visibility = Visibility.Visible;
-            MonacoConsole.Visibility = Visibility.Hidden;
-            sendnotify("EzSploit Loaded!");
+            
         }
 
         private async void killboblocx_Click(object sender, RoutedEventArgs e)
@@ -809,8 +915,8 @@ namespace ezsploitv
 
         private void oxygen_Click(object sender, RoutedEventArgs e)
         {
-            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Oxygen");
-            LogConsole("Selected API: OxygenU");
+            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Comet");
+            LogConsole("Selected API: Comet");
         }
 
         private async void autoinject_Click(object sender, RoutedEventArgs e)
@@ -832,22 +938,11 @@ namespace ezsploitv
                 await Task.Delay(100);
                 path = File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt");
             }
-            var message = "You need to restart ezsploit to turn on/off auto inject. Do you want to restart?";
-            var title = "EzSploit notification";
-            var result = MessageBox.Show(
-                message,
-                title,
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
-
-            switch (result)
-            {
-                case System.Windows.Forms.DialogResult.Yes:
-                    Close();
-                    break;
-                case System.Windows.Forms.DialogResult.No:
-                    break;
-            }
+            Process.Start("c:\\mikusdevPrograms\\ezsploit\\EzSploitV4.exe");
+            await Task.Delay(50);
+            Process[] procs = Process.GetProcessesByName("ezsploitv");
+            foreach (Process p in procs) { p.Kill(); }
+            Close();
         }
 
         private void options_Loaded(object sender, RoutedEventArgs e)
@@ -877,11 +972,13 @@ namespace ezsploitv
                 try
                 {
                     SetText(File.ReadAllText(openFileDialog.FileName));
-
+                    sendnotify("File opened!");
+                    LogConsole("Opened file: " + openFileDialog.FileName);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Error: Could not read file from disk. Original error: {ex.Message}");//display if got error
+                    LogConsole($"Error: Could not read file from disk. Original error: {ex.Message}");//display if got error
+                    sendnotify("Error, check console");
                 }
             }
             savetext();
@@ -889,18 +986,36 @@ namespace ezsploitv
 
         private void Injectbutt(object sender, RoutedEventArgs e)
         {
+            
             injectezsploit();
+            
+            
         }
 
-        public void injectezsploit()
+        public async void injectezsploit()
         {
-            
-            LogConsole("Irying Inject...");
-            sendnotify("Trying Inject...");
-            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Oxygen")
+            if (Verify(HWID()))
             {
-                RuyiAPI.inject();
+                try
+                {
+                    sendnotify("Injecting...");
+                }
+                catch (Exception)
+                {
+
+                }
+                await Task.Delay(500);
+                if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
+                {
+                    RuyiAPI.inject();
+                }
             }
+            else
+            {
+                keysystem f3 = new keysystem();
+                f3.Show();
+            }
+            
         }
 
         private void MonacoEditor_KeyUp(object sender, System.Windows.Input.KeyEventArgs e)
@@ -913,21 +1028,42 @@ namespace ezsploitv
 
         }
         public int consoleon = 0;
-        private void openconsole_Click(object sender, RoutedEventArgs e)
+        private async void openconsole_Click(object sender, RoutedEventArgs e)
         {
+
             if (consoleon == 0)
             {
-                MonacoEditor.Visibility = Visibility.Hidden;
-                MonacoConsole.Visibility = Visibility.Visible;
+                consoleborder.Visibility = Visibility.Visible;
+                Fade(consoleborder);
+                await Task.Delay(500);
                 consoleon = 1;
             }
             else
             {
-                MonacoEditor.Visibility = Visibility.Visible;
-                MonacoConsole.Visibility = Visibility.Hidden;
+                FadeOut(consoleborder);
+                await Task.Delay(500);
+                consoleborder.Visibility = Visibility.Hidden;
                 consoleon = 0;
             }
             
         }
+
+        private void ezsploitfolder_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("explorer.exe", "c:\\mikusdevPrograms\\ezsploit");
+        }
+
+        private void commetfolder_Click(object sender, RoutedEventArgs e)
+        {
+            DirectoryInfo hdDirectoryInWhichToSearch = new DirectoryInfo(Environment.GetEnvironmentVariable("LocalAppData") + "\\Packages");
+            FileInfo[] filesInDir = hdDirectoryInWhichToSearch.GetFiles("*" + "ROBLOXCORPORATION" + "*.*");
+            DirectoryInfo[] dirsInDir = hdDirectoryInWhichToSearch.GetDirectories("*" + "ROBLOXCORPORATION" + "*.*");
+            foreach (DirectoryInfo foundDir in dirsInDir)
+            {
+                Process.Start("explorer.exe", foundDir.FullName + "\\AC\\workspace");
+            }
+        }
+
+        
     }
 }

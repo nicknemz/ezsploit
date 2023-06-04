@@ -30,3 +30,4 @@ C:\Users\mdev\Documents\projects\projects\ezsploitv\ezsploitv\bin\Release\Newton
 C:\Users\mdev\Documents\projects\projects\ezsploitv\ezsploitv\bin\Release\DiscordRPC.pdb
 C:\Users\mdev\Documents\projects\projects\ezsploitv\ezsploitv\bin\Release\DiscordRPC.xml
 C:\Users\mdev\Documents\projects\projects\ezsploitv\ezsploitv\bin\Release\Newtonsoft.Json.xml
+C:\Users\mdev\Documents\projects\projects\ezsploitv\ezsploitv\obj\Release\ezsploitv.keysystem.resources

@@ -4,12 +4,7 @@ C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\obj\Release\EzSploit
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\EzSploit.exe.config
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\EzSploit.exe
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\EzSploit.pdb
-C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\DiscordRPC.dll
-C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\EasyExploits.dll
-C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\Guna.UI2.dll
-C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\KrnlAPI.dll
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\Newtonsoft.Json.dll
-C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\WeAreDevs_API.dll
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\bin\Release\Newtonsoft.Json.xml
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\obj\Release\EzSploit.csproj.CopyComplete
 C:\Users\mdev\Documents\projects\projects\EzSploit\EzSploit\obj\Release\EzSploit.exe

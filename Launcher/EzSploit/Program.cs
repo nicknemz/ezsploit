@@ -26,6 +26,42 @@ namespace EzSploit
             try
             {
                 
+                try
+                {
+                    Process[] procs = Process.GetProcessesByName("ezsploitv");
+                    foreach (Process p in procs) { p.Kill(); }
+                }
+                catch (Exception)
+                {
+
+                }
+                try
+                {
+                    Process[] procs = Process.GetProcessesByName("ezV6");
+                    foreach (Process p in procs) { p.Kill(); }
+                }
+                catch (Exception)
+                {
+
+                }
+                try
+                {
+                    Process[] procs = Process.GetProcessesByName("ezsploitv.exe");
+                    foreach (Process p in procs) { p.Kill(); }
+                }
+                catch (Exception)
+                {
+
+                }
+                try
+                {
+                    Process[] procs = Process.GetProcessesByName("ezV6.exe");
+                    foreach (Process p in procs) { p.Kill(); }
+                }
+                catch (Exception)
+                {
+
+                }
                 string bckapi;
                 string bcktextbox;
                 string bcktheme;
