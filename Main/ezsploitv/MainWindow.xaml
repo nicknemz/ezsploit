@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:ezsploitv"
         xmlns:Wpf="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf" x:Name="window" x:Class="ezsploitv.MainWindow"
         mc:Ignorable="d"
-        Title="EzSploit V 6.3 - By mikusdev" Height="570" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Window_MouseDown">
+        Title="EzSploit V 6.4 - By mikusdev" Height="570" Width="800" WindowStyle="None" AllowsTransparency="True" Background="Transparent" MouseDown="Window_MouseDown">
     <Grid x:Name="chujnia">
         <Grid x:Name="MainGrid" Loaded="Grid_Loaded" Width="800">
             <Border x:Name="HomeBorder" BorderBrush="Black" BorderThickness="0" CornerRadius="8" Background="#FF0A0A0A" Width="800" Height="450" Margin="0,0,0,120">

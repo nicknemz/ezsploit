@@ -819,7 +819,7 @@ namespace ezsploitv
             await Task.Delay(50);
             LogConsole("Selected API: " + File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt"));
             await Task.Delay(50);
-            LogConsole("version - 6.3");
+            LogConsole("version - 6.4 - keyForm patch1");
             await Task.Delay(50);
             LogConsole("developed by - mikusdev");
             await Task.Delay(50);
@@ -831,14 +831,9 @@ namespace ezsploitv
             if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
             {
                 LogConsole("Auto-Inject: enabled");
-                try
-                {
-                    sendnotify("Checking Comet key");
-                }
-                catch (Exception)
-                {
-
-                }
+                
+                sendnotify("Checking Comet key");
+                
                 if (Verify(HWID()))
                 {
                     
