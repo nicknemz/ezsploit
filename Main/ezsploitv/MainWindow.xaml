@@ -383,7 +383,7 @@
                     </Grid>
                 </Grid>
             </Border>
-            <Border x:Name="MainBorder" BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="278,152,278,152" Height="NaN" Width="NaN" Background="Black" Opacity="0.5" d:IsHidden="True">
+            <Border x:Name="MainBorder" BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="278,152,278,152" Height="NaN" Width="NaN" Background="Black" Opacity="0.5">
                 <Grid x:Name="startup">
                     <Image Margin="25,29,120,37" Source="/ezv5.ico" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Center">
                         <Image.RenderTransform>
@@ -398,6 +398,7 @@
                     <Label Content="EzSploit" Foreground="White" Margin="99,0,0,0" FontWeight="Bold" FontSize="36" HorizontalAlignment="Right" VerticalAlignment="Center" Width="143"/>
                     <Label Content="Loading UI..." Foreground="White" Margin="93,99,0,0" FontWeight="Bold" FontSize="24" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="39" Width="149" RenderTransformOrigin="1.006,1.284"/>
                     <Label Content="Developed by: mikusdev" Foreground="White" FontWeight="Bold" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Bottom" Height="39" Width="307" RenderTransformOrigin="1.006,1.284"/>
+                    <Label x:Name="randomfacts" Content="                     fun fact: EzSploit is developed by kid" Foreground="White" FontWeight="Bold" FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Width="478" Margin="0,100,0,0"/>
                 </Grid>
             </Border>
             <Border x:Name="consoleborder" Margin="0,450,0,0" BorderBrush="Black" BorderThickness="2" CornerRadius="8" Background="#FF0A0A0A">

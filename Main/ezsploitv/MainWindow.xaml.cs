@@ -160,8 +160,38 @@ namespace ezsploitv
             storyboard.Children.Add(ShiftAnimation);
             storyboard.Begin();
         }
+
+        Random rnd = new Random();
+
+        int jajorandomowe;
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
+            jajorandomowe = rnd.Next(1, 6);
+            if (jajorandomowe == 1)
+            {
+                randomfacts.Content = "                   fun fact: EzSploit is developed by a kid";
+            }
+            else if (jajorandomowe == 2)
+            {
+                randomfacts.Content = "   fun fact: EzSploit is propably the safest executor";
+            }
+            else if (jajorandomowe == 3)
+            {
+                randomfacts.Content = "fun fact: EzSploit has better version of CometAPI";
+            }
+            else if (jajorandomowe == 4)
+            {
+                randomfacts.Content = "                              fun fact: EzSploit is open-source";
+            }
+            else if (jajorandomowe == 5)
+            {
+                randomfacts.Content = "We're no strangers to love You know the rules and so do I";
+            }
+            else if (jajorandomowe == 6)
+            {
+                randomfacts.Content = "We're no strangers to love You know the rules and so do I";
+            }
+
             this.Fade(this.MainBorder);
             ObjectShiftPos(MainBorder, MainBorder.Margin, new Thickness(0, 0, 0, 124));
             await Task.Delay(2000);

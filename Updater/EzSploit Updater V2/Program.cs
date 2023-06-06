@@ -34,7 +34,24 @@ namespace EzSploit_Updater_V2
             string script6text;
             string script7text;
             WebClient webClient = new WebClient();
+            try
+            {
+                Process[] procs = Process.GetProcessesByName("ezsploitv");
+                foreach (Process p in procs) { p.Kill(); }
+            }
+            catch (Exception)
+            {
 
+            }
+            try
+            {
+                Process[] procs = Process.GetProcessesByName("EzSploitV4");
+                foreach (Process p in procs) { p.Kill(); }
+            }
+            catch (Exception)
+            {
+
+            }
             try
             {
                 Console.WriteLine("Checking internet connection...");
