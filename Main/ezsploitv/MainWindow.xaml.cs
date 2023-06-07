@@ -723,21 +723,14 @@ namespace ezsploitv
                 }
                 catch (Exception)
                 {
-                    try
-                    {
-                        MonacoConsole.Text = MonacoConsole.Text + "\r\n" + sex;
-                    }
-                    catch (Exception)
-                    {
-                        
-                    }
+                    
                 }
             }
         }
 
         private async void Grid1_Loaded(object sender1, RoutedEventArgs e1)
         {
-            await Task.Delay(1800);
+            await Task.Delay(1700);
             client = new DiscordRpcClient("1078735530654707772");
             client.Logger = new ConsoleLogger
             {
@@ -845,7 +838,14 @@ namespace ezsploitv
 
             readtext();
             savetext();
-
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
+            {
+                LogConsole("Auto-Inject: enabled");
+            }
+            else
+            {
+                LogConsole("Auto-Inject: disabled");
+            }
             await Task.Delay(50);
             LogConsole("Selected API: " + File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt"));
             await Task.Delay(50);
@@ -854,41 +854,38 @@ namespace ezsploitv
             LogConsole("developed by - mikusdev");
             await Task.Delay(50);
             LogConsole("helper (bro helped me mentally) - nicknamez");
-            await Task.Delay(1000);
+            await Task.Delay(700);
+            LogConsole("Checking Comet key");
+
+            if (Verify(HWID()))
+            {
+                LogConsole("Key ok!");
+                
+            }
+            else
+            {
+                LogConsole("Wrong key!");
+                keysystem f3 = new keysystem();
+                f3.Show();
+            }
+            await Task.Delay(100);
             sendnotify("EzSploit Loaded!");
             await Task.Delay(4000);
             savetext();
             if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
             {
-                LogConsole("Auto-Inject: enabled");
-                
-                sendnotify("Checking Comet key");
-                
-                if (Verify(HWID()))
-                {
-                    
-                    ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
+                LogConsole("Auto-Inject initialized");
+                ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
 
-                    processWatcher.Created += async (sender, proc) =>
-                    {
-                        Process RobloxProcess = proc;
-
-                        await Task.Delay(4000);
-                        injectezsploit();
-                    };
-                }
-                else
+                processWatcher.Created += async (sender, proc) =>
                 {
-                    keysystem f3 = new keysystem();
-                    f3.Show();
-                }
-                
+                    Process RobloxProcess = proc;
+                    await Task.Delay(4000);
+                    injectezsploit();
+                };
             }
-            else
-            {
-                LogConsole("Auto-Inject: disabled");
-            }
-            
+
+
         }
 
         private async void killboblocx_Click(object sender, RoutedEventArgs e)

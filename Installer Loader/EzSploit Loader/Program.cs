@@ -22,15 +22,7 @@ namespace EzSploit_Loader
         static void Main(string[] args)
         {
             WebClient webClient = new WebClient();
-            void renamecfg()
-            {
-                Console.WriteLine("Missing files");
-                Console.WriteLine("Triggering ReDownload");
-                if (Directory.Exists("c:\\mikusdevPrograms\\ezsploit\\Configs"))
-                {
-                    Directory.Move("c:\\mikusdevPrograms\\ezsploit\\Configs", "c:\\mikusdevPrograms\\ezsploit\\updatetemp");
-                }
-            }
+            
 
             void updatechecker()
             {
@@ -56,43 +48,8 @@ namespace EzSploit_Loader
                     {
 
                     }
-                    try
-                    {
-                        Process[] procs = Process.GetProcessesByName("ezsploitv.exe");
-                        foreach (Process p in procs) { p.Kill(); }
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                    try
-                    {
-                        Process[] procs = Process.GetProcessesByName("ezV6.exe");
-                        foreach (Process p in procs) { p.Kill(); }
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                    string bckapi;
-                    string bcktextbox;
-                    string bcktheme;
-                    string bckautoinj;
-
-                    string bckscript1;
-                    string bckscript2;
-                    string bckscript3;
-                    string bckscript4;
-                    string bckscript5;
-                    string bckscript6;
-                    string bckscript7;
-                    string bckscript1text;
-                    string bckscript2text;
-                    string bckscript3text;
-                    string bckscript4text;
-                    string bckscript5text;
-                    string bckscript6text;
-                    string bckscript7text;
+                    
+                    
 
 
 
@@ -200,97 +157,9 @@ namespace EzSploit_Loader
 
                             if (Directory.Exists(@"c:\mikusdevPrograms\ezsploit\updatetemp"))
                             {
-                                bckapi = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\selectedAPI.txt");
-                                bcktextbox = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\textboxconf.txt");
-                                bcktheme = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\selectedTheme.txt");
-                                bckautoinj = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\autoinject.txt");
-                                bckscript2 = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script2.txt");
-                                bckscript3 = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script3.txt");
-                                bckscript4 = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script4.txt");
-                                bckscript5 = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script5.txt");
-                                bckscript6 = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script6.txt");
-                                bckscript7 = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script7.txt");
-                                bckscript1text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script1text.txt");
-                                bckscript2text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script2text.txt");
-                                bckscript3text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script3text.txt");
-                                bckscript4text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script4text.txt");
-                                bckscript5text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script5text.txt");
-                                bckscript6text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script6text.txt");
-                                bckscript7text = File.ReadAllText(@"c:\mikusdevPrograms\ezsploit\updatetemp\script7text.txt");
-
-                                Directory.CreateDirectory("c:\\mikusdevPrograms\\ezsploit\\Configs");
+                                Directory.Move(@"c:\mikusdevPrograms\ezsploit\updatetemp", @"c:\mikusdevPrograms\ezsploit\Configs");
 
                                 Directory.CreateDirectory("c:\\mikusdevPrograms\\ezsploit\\Scripts");
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedTheme.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script2.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script3.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script4.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script5.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script6.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script7.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script1text.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script2text.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script3text.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script4text.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script5text.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script6text.txt"))
-                                {
-                                }
-                                using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script7text.txt"))
-                                {
-                                }
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedTheme.txt", bcktheme);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", bckapi);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\textboxconf.txt", bcktextbox);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt", bckautoinj);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script2.txt", bckscript2);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script3.txt", bckscript3);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script4.txt", bckscript4);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script5.txt", bckscript5);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script6.txt", bckscript6);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script7.txt", bckscript7);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script1text.txt", bckscript1text);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script2text.txt", bckscript2text);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script3text.txt", bckscript3text);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script4text.txt", bckscript4text);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script5text.txt", bckscript5text);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script6text.txt", bckscript6text);
-                                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\script7text.txt", bckscript7text);
-                                Thread.Sleep(100);
-                                Directory.Delete(@"c:\mikusdevPrograms\ezsploit\updatetemp", true);
                                 if (Directory.Exists("c:\\mikusdevPrograms\\ezsploit\\monaco-editor"))
                                 {
                                     Console.WriteLine("ReDownloading monaco-editor");
@@ -311,13 +180,12 @@ namespace EzSploit_Loader
                                     Console.WriteLine("]Extracting runtimes.zip");
                                     ZipFile.ExtractToDirectory("c:\\mikusdevPrograms\\ezsploit\\runtimes.zip", "c:\\mikusdevPrograms\\ezsploit");
                                 }
-                                Thread.Sleep(100);
+                                
                                 Console.WriteLine("Restored Configs!");
                                 Console.WriteLine("Launching EzSploit 6");
                                 webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/ezsploitv.exe", "c:\\mikusdevPrograms\\ezsploit\\ezV6.exe");
-                                Thread.Sleep(500);
+                                Thread.Sleep(100);
                                 Process.Start("c:\\mikusdevPrograms\\ezsploit\\ezV6.exe");
-                                Thread.Sleep(500);
                                 return;
                             }
                             Directory.CreateDirectory("c:\\mikusdevPrograms\\ezsploit\\Configs");
@@ -338,7 +206,7 @@ namespace EzSploit_Loader
                             }
                             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedTheme.txt", "classic");
                             File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt", "Turned off");
-                            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "WeAreDevs");
+                            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Comet");
                             using (File.Create("c:\\mikusdevPrograms\\ezsploit\\Configs\\script2.txt"))
                             {
                             }
@@ -395,9 +263,8 @@ namespace EzSploit_Loader
                         }
                         Console.WriteLine("Launching EzSploit 6");
                         webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/ezsploitv.exe", "c:\\mikusdevPrograms\\ezsploit\\ezV6.exe");
-                        Thread.Sleep(500);
+                        Thread.Sleep(100);
                         Process.Start("c:\\mikusdevPrograms\\ezsploit\\ezV6.exe");
-                        Thread.Sleep(500);
                     }
 
                     
@@ -460,22 +327,7 @@ namespace EzSploit_Loader
             Console.WriteLine("INFO: You can also install WebView2");
             if (System.IO.File.Exists("C:\\mikusdevPrograms\\ezsploit\\EzSploitV4.exe"))
             {
-                
-
-                try
-                {
-                    Console.WriteLine("Welcome to EzSploit V6 loader!");
-                    Console.WriteLine("Running update checker...");
-                    
-                }
-                catch (Exception)
-                {
-                    
-                }
                 updatechecker();
-                
-                
-
             } else
             {
                 Console.WriteLine("EzSploit not detected!");
