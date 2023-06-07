@@ -31,6 +31,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using static System.Net.Mime.MediaTypeNames;
 using MessageBox = System.Windows.Forms.MessageBox;
 using Path = System.IO.Path;
@@ -865,8 +866,7 @@ namespace ezsploitv
             else
             {
                 LogConsole("Wrong key!");
-                keysystem f3 = new keysystem();
-                f3.Show();
+                COMETKEY.Visibility = Visibility.Visible;
             }
             await Task.Delay(100);
             sendnotify("EzSploit Loaded!");
@@ -1034,8 +1034,7 @@ namespace ezsploitv
             }
             else
             {
-                keysystem f3 = new keysystem();
-                f3.Show();
+                COMETKEY.Visibility = Visibility.Visible;
             }
             
         }
@@ -1086,6 +1085,62 @@ namespace ezsploitv
             }
         }
 
-        
+        private void getkey_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MessageBox.Show("When you get the key, paste it in the box below.");
+                Process.Start("https://cometrbx.xyz/ks/start.php?HWID=" + HWID());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Key System Error!");
+                if (ex.ToString().Contains("An attempt was made to load a program with an incorrect") || ex.ToString().Contains("BadImageFormatException"))
+                {
+                    Process.Start("https://aka.ms/vs/16/release/vc_redist.x86.exe");
+                    Process.Start("https://aka.ms/vs/16/release/vc_redist.x64.exe");
+                    MessageBox.Show("Your system is missing the C/C++ redistributions.\nThe link to both of them were started.\nPlease download both of them.\nIf there is an option for repair, select that. If not, continue with a normal installation.\nOnce both are installed, restart your computer.", "Error");
+                }
+                else
+                {
+                    MessageBox.Show("Get key error!\n" + ex.ToString());
+                }
+            }
+        }
+        private DispatcherTimer KeySpam;
+        private async void checkkey_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (Verify(jebanysciemkluczxddd.Text))
+                {
+                    MessageBox.Show("Valid key! (This Key will last a 24h)");
+                    await Task.Delay(1000);
+                    Process.Start("c:\\mikusdevPrograms\\ezsploit\\EzSploitV4.exe");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("This key is invalid.");
+                    MessageBox.Show("Invalid Key, didn't mean this to be? Please ask people in our discord server.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                if (ex.ToString().Contains("An attempt was made to load a program with an incorrect") || ex.ToString().Contains("BadImageFormatException"))
+                {
+                    Process.Start("https://aka.ms/vs/16/release/vc_redist.x86.exe");
+                    Process.Start("https://aka.ms/vs/16/release/vc_redist.x64.exe");
+                    MessageBox.Show("Your system is missing the C/C++ redistributions.\nThe link to both of them were started.\nPlease download both of them.\nIf there is an option for repair, select that. If not, continue with a normal installation.\nOnce both are installed, restart your computer.", "Error");
+                }
+                else
+                {
+                    MessageBox.Show("Verify key error!\n" + ex.ToString());
+                }
+
+            }
+            KeySpam.Start();
+        }
     }
 }

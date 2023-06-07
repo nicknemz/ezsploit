@@ -412,6 +412,30 @@
                     </Grid>
                 </Grid>
             </Border>
+            <Border x:Name="COMETKEY" BorderBrush="Black" BorderThickness="1" CornerRadius="8" Margin="178,92,178,212" Height="NaN" Width="NaN" Background="Black" Visibility="Hidden">
+                <Grid x:Name="cometkeygrid">
+                    <Label Content="Comet Key System" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+                    <Button x:Name="getkey" FontSize="22" Click="getkey_Click" RenderTransformOrigin="0.672,1.813" Margin="10,132,251,51" ContentStringFormat="Clear" BorderBrush="{x:Null}" Background="#FF141414" Content="Get Key" Foreground="White" FontWeight="Bold">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+                    <Button x:Name="checkkeyCopy" FontSize="22" Click="checkkey_Click" RenderTransformOrigin="0.672,1.813" Margin="251,132,10,51" ContentStringFormat="Clear" BorderBrush="{x:Null}" Background="#FF141414" Content="Check Key" Foreground="White" FontWeight="Bold">
+                        <Button.Resources>
+                            <Style TargetType="{x:Type Border}">
+                                <Setter Property="CornerRadius" Value="7"/>
+
+                            </Style>
+                        </Button.Resources>
+
+                    </Button>
+                    <TextBox x:Name="jebanysciemkluczxddd" HorizontalAlignment="Center" Margin="0,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="422" Height="38" Background="#FF141414" Foreground="White" FontSize="22"/>
+                </Grid>
+            </Border>
         </Grid>
     </Grid>
 </Window>
