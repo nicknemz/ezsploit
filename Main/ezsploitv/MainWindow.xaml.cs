@@ -861,29 +861,41 @@ namespace ezsploitv
             if (Verify(HWID()))
             {
                 LogConsole("Key ok!");
-                
+                await Task.Delay(100);
+                sendnotify("EzSploit Loaded!");
+                await Task.Delay(4000);
+                savetext();
+
+                if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
+                {
+                    LogConsole("Auto-Inject initialized");
+                    ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
+
+                    processWatcher.Created += async (sender, proc) =>
+                    {
+                        Process RobloxProcess = proc;
+                        await Task.Delay(4000);
+                        injectezsploit();
+                    };
+                }
             }
             else
             {
                 LogConsole("Wrong key!");
                 COMETKEY.Visibility = Visibility.Visible;
-            }
-            await Task.Delay(100);
-            sendnotify("EzSploit Loaded!");
-            await Task.Delay(4000);
-            savetext();
-            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
-            {
-                LogConsole("Auto-Inject initialized");
-                ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
-
-                processWatcher.Created += async (sender, proc) =>
+                MonacoEditor.Visibility = Visibility.Hidden;
+                Fade(COMETKEY);
+                await Task.Delay(4000);
+                try
                 {
-                    Process RobloxProcess = proc;
-                    await Task.Delay(4000);
-                    injectezsploit();
-                };
+                    savetext();
+                }
+                catch (Exception ex)
+                {
+                    LogConsole("Textbox save error: " + ex);
+                }
             }
+            
 
 
         }
