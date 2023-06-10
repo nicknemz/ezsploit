@@ -5,10 +5,12 @@ using DiscordRPC.Message;
 using IWshRuntimeLibrary;
 using Microsoft.Web.WebView2.Core;
 using Microsoft.Web.WebView2.Wpf;
+using RBXMSEAPI.Classes;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -69,8 +71,16 @@ namespace ezsploitv
             }
             else
             {
-                File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Comet");
+                if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "KeylessFluxteam")
+                {
+
+                }
+                else
+                {
+                    File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "Comet");
+                }
             }
+            
         }
 
         [DllImport("bin/CometAuth.dll", CallingConvention = CallingConvention.Cdecl, CharSet = CharSet.Ansi)]
@@ -346,14 +356,49 @@ namespace ezsploitv
             Functions.PopulateListBox(listbox1, "c:\\mikusdevPrograms\\ezsploit\\Scripts", "*.lua");
             savetext();
         }
-
-        private void Execute_Click(object sender, RoutedEventArgs e)
+        int robloxpid = 0;
+        private async void Execute_Click(object sender, RoutedEventArgs e)
         {
+            
             LogConsole("Trying Execute...");
             sendnotify("Trying Execute...");
             if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
             {
                 new DLLInterfacing().Execute(GetText());
+            }
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "KeylessFluxteam")
+            {
+                try
+                {
+                    Process[] processesByName = Process.GetProcessesByName("Windows10Universal");
+                    if (processesByName.Length == 0)
+                    {
+                        MessageBox.Show("Roblox not launched!");
+                    }
+                    else
+                    {
+                        var processes = Process.GetProcessesByName("Windows10Universal");
+                        foreach (var process in processes)
+                        {
+                            robloxpid = process.Id;
+                            await Task.Delay(500);
+                            try
+                            {
+                                fluxteam_net_api.run_script(robloxpid, GetText());
+                            }
+                            catch (Exception ex)
+                            {
+                                LogConsole("Execute error: " + ex);
+                            }
+                            
+                        }
+                    }
+                    
+                }
+                catch (Exception)
+                {
+
+                }
             }
             savetext();
         }
@@ -850,7 +895,7 @@ namespace ezsploitv
             await Task.Delay(50);
             LogConsole("Selected API: " + File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt"));
             await Task.Delay(50);
-            LogConsole("version - 6.4 - keyForm patch1");
+            LogConsole("version - 6.5 - new keyless API");
             await Task.Delay(50);
             LogConsole("developed by - mikusdev");
             await Task.Delay(50);
@@ -858,9 +903,48 @@ namespace ezsploitv
             await Task.Delay(700);
             LogConsole("Checking Comet key");
 
-            if (Verify(HWID()))
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
             {
-                LogConsole("Key ok!");
+                if (Verify(HWID()))
+                {
+                    LogConsole("Key ok!");
+                    await Task.Delay(100);
+                    sendnotify("EzSploit Loaded!");
+                    await Task.Delay(4000);
+                    savetext();
+
+                    if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\autoinject.txt") == "Turned on")
+                    {
+                        LogConsole("Auto-Inject initialized");
+                        ProcessWatcher processWatcher = new ProcessWatcher("Windows10Universal");
+
+                        processWatcher.Created += async (sender, proc) =>
+                        {
+                            Process RobloxProcess = proc;
+                            await Task.Delay(4000);
+                            injectezsploit();
+                        };
+                    }
+                }
+                else
+                {
+                    LogConsole("Wrong key!");
+                    COMETKEY.Visibility = Visibility.Visible;
+                    MonacoEditor.Visibility = Visibility.Hidden;
+                    Fade(COMETKEY);
+                    await Task.Delay(4000);
+                    try
+                    {
+                        savetext();
+                    }
+                    catch (Exception ex)
+                    {
+                        LogConsole("Textbox save error: " + ex);
+                    }
+                }
+            }
+            else
+            {
                 await Task.Delay(100);
                 sendnotify("EzSploit Loaded!");
                 await Task.Delay(4000);
@@ -879,22 +963,7 @@ namespace ezsploitv
                     };
                 }
             }
-            else
-            {
-                LogConsole("Wrong key!");
-                COMETKEY.Visibility = Visibility.Visible;
-                MonacoEditor.Visibility = Visibility.Hidden;
-                Fade(COMETKEY);
-                await Task.Delay(4000);
-                try
-                {
-                    savetext();
-                }
-                catch (Exception ex)
-                {
-                    LogConsole("Textbox save error: " + ex);
-                }
-            }
+            
             
 
 
@@ -1028,26 +1097,50 @@ namespace ezsploitv
 
         public async void injectezsploit()
         {
-            if (Verify(HWID()))
+            if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "KeylessFluxteam")
             {
+                if(!File.Exists("c:\\mikusdevPrograms\\ezsploit\\Module.dll"))
+                {
+                    LogConsole("Downloading API deps...");
+                    webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/Module.dll", "c:\\mikusdevPrograms\\ezsploit\\Module.dll");
+                }
+                if (!File.Exists("c:\\mikusdevPrograms\\ezsploit\\Fluxteam_net_API.dll"))
+                {
+                    LogConsole("Downloading API deps...");
+                    webClient.DownloadFile("https://raw.githubusercontent.com/mikusgszyp/ezsploitfiledownloader/main/Fluxteam_net_API.dll", "c:\\mikusdevPrograms\\ezsploit\\Fluxteam_net_API.dll");
+                }
+                await Task.Delay(100);
                 try
                 {
                     sendnotify("Injecting...");
+                    fluxteam_net_api.inject();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    LogConsole("Inject error: " + ex);
+                }
+            }
+            else if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
+            {
+                if (Verify(HWID()))
+                {
+                    try
+                    {
+                        sendnotify("Injecting...");
+                    }
+                    catch (Exception)
+                    {
 
-                }
-                await Task.Delay(500);
-                if (File.ReadAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt") == "Comet")
-                {
+                    }
+                    await Task.Delay(100);
                     RuyiAPI.inject();
                 }
+                else
+                {
+                    COMETKEY.Visibility = Visibility.Visible;
+                }
             }
-            else
-            {
-                COMETKEY.Visibility = Visibility.Visible;
-            }
+            
             
         }
 
@@ -1153,6 +1246,12 @@ namespace ezsploitv
 
             }
             KeySpam.Start();
+        }
+
+        private void fluxteam_Click(object sender, RoutedEventArgs e)
+        {
+            File.WriteAllText("c:\\mikusdevPrograms\\ezsploit\\Configs\\selectedAPI.txt", "KeylessFluxteam");
+            LogConsole("Selected API: KeylessFluxteam");
         }
     }
 }
